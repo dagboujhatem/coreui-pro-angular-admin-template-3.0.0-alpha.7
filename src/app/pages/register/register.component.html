@@ -1,0 +1,85 @@
+<c-container>
+  <c-row>
+    <c-col md="6" class="mx-auto">
+      <c-card class="mx-4">
+        <c-card-body class="p-4">
+          <form>
+            <h1>Register</h1>
+            <p class="text-muted">Create your account</p>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <c-icon name="cil-user"></c-icon>
+                </span>
+              </div>
+              <input cInput
+                placeholder="Username"
+                autocomplete="username"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <c-icon name="cil-envelope-closed"></c-icon>
+                </span>
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <c-icon name="cil-lock-locked"></c-icon>
+                </span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="cil-lock-locked"></i>
+                </span>
+              </div>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Repeat password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+            <button cButton color="success" block="true">
+              Create Account
+            </button>
+          </form>
+        </c-card-body>
+        <c-card-footer class="p-4">
+          <c-row>
+            <c-col col="6">
+              <button cButton color="facebook" block="true" [routerLink]="'/login'">
+                <span>facebook</span>
+              </button>
+            </c-col>
+            <div class="col-6">
+              <button cButton color="twitter" block="true" [routerLink]="'/login'">
+                <span>twitter</span>
+              </button>
+            </div>
+          </c-row>
+        </c-card-footer>
+      </c-card>
+    </c-col>
+  </c-row>
+</c-container>

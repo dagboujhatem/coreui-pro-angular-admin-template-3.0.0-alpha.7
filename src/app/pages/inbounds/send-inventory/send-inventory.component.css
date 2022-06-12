@@ -1,0 +1,16 @@
+.step-enable{
+    color:#5983FF;
+    padding-top: 3px;
+}
+.step-disable{
+    color:gray;
+    padding-top: 3px;
+}
+.table-header-custom
+{
+    text-align: center;
+}
+.table-body-text
+{
+    text-align: center;
+}

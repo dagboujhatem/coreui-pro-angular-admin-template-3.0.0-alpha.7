@@ -1,0 +1,231 @@
+// Here you can add other styles
+.btn-primary{
+    background-color:#5983FF;
+}
+.btn-primary:hover{
+    background-color:#3c6dff;
+}
+a{
+    color: #5983FF;
+}
+a:hover{
+    color: #3c6dff;
+}
+.badge-primary {
+    color: #fff;
+    background-color: #5983FF;
+}
+.c-dark-theme .badge-primary {
+    color: #fff;
+    background-color: #5983FF;
+}
+.theme-color{
+    color:#5983FF;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+    color: #fff;
+    background-color: lightgrey;
+    border-color: gray;
+}
+.btn-primary:focus, .btn-primary.focus {
+    color: #fff;
+    background-color: #3c6dff;
+    border-color: #3c6dff;
+    box-shadow: 0 0 0 0.2rem rgb(81 65 224 / 50%);
+}
+.btn-primary:c, .btn-primary.focus {
+    color: #fff;
+    background-color: #3c6dff;
+    border-color: #3c6dff;
+    box-shadow: 0 0 0 0.2rem rgb(81 65 224 / 50%);
+}
+.c-switch-primary .c-switch-input:checked + .c-switch-slider {
+    background-color: #3c6dff;
+    border-color: #3c6dff;
+}
+.c-dark-theme .c-switch-primary .c-switch-input:checked + .c-switch-slider {
+    background-color: #3c6dff;
+    border-color: #3c6dff;
+}
+.btn-transparent{
+    color: black;
+    border-color: gray;
+    margin: 3px;
+}
+.reset-active{
+    color: black;
+    border-color: gray;
+    margin: 3px;
+    
+}
+.reset-deactive{
+    color: lightgrey;
+    border-color: lightgrey;
+    margin: 3px;
+    
+}
+.c-dark-theme .reset-active{
+    color: lightgrey !important;
+    border-color: lightgrey !important;
+    margin: 3px;
+}
+.c-dark-theme .reset-deactive{
+    color: gray !important;
+    border-color: gray !important;
+    margin: 3px;
+}
+.table-header-custom
+{
+    margin-bottom: 0.5rem;
+    font-weight: 500 !important;
+    line-height: 1.5;
+    font-size: 0.9em;
+    color: #454f5b;
+}
+
+.c-dark-theme .table-header-custom {
+    color: #e1e1e1
+}
+
+.c-dark-theme .btn-outline-secondary {
+    color: gray;
+    border-color: gray;
+}
+
+.card-no-toolbar{
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 43px;
+}
+.card-toolbar{
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.custom-toolbar{
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+}
+.table-header-text{
+    margin-bottom: 0.5rem;
+    font-weight: 500 !important;
+    line-height: 1.5;
+    font-size: 0.9em;
+    color: #454f5b;
+}
+.table-body-text{
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: 0.9em;
+    color: gray;
+}
+.c-dark-theme .table-header-text {
+    color: #e1e1e1
+}
+
+.deliver-item img{
+    width: 64px;
+    height: 64px;
+    box-shadow: 0 0 10px lightgrey;
+    border-radius: 50%;
+    margin-right:15px;
+}
+.deliver-item div h6{
+    color: gray;
+    margin-top: 23px;
+}
+.deliver-item div h4{
+    color: gray;
+    margin-top: 12px;
+}
+.deliver-item div h5{
+    font-size: 1.03em;
+}
+.c-dark-theme .deliver-item div img{
+    box-shadow: 0 0 10px gray;
+}
+
+@media screen and (min-width: 1280px) {
+    .deliver-items{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 54%
+        //max-width: 100%;
+    }
+    .deliver-item{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 50%;
+        max-width: 50%;
+
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .pie-analytics{
+        width: 420px;
+        position: relative;
+    }
+    .pie-analytics div {
+        position: absolute;
+        top:90px;
+        left: 38%;
+        text-align: center;
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 1279px) {
+    
+    .deliver-items{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 68%;
+        //max-width: 100%;
+    }
+    .deliver-item{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 50%;
+        max-width: 50%;
+
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+    .pie-analytics{
+        width: 420px;
+        position: relative;
+        margin-left: -100px;
+        margin-right: -100px;
+    }
+    .pie-analytics div {
+        position: absolute;
+        top:90px;
+        left: 38%;
+        text-align: center;
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    .deliver-items{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .deliver-item{
+        display: flex;
+        flex-wrap: wrap;
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+}

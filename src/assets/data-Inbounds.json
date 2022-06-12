@@ -1,0 +1,962 @@
+[
+  {
+  "id": 1,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 2,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 3,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 4,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 5,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 6,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 7,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 8,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 9,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 10,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 11,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 12,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 13,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 14,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 15,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 16,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 17,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 18,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 19,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 20,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 21,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 22,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 23,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 24,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 25,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 26,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 27,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 28,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 29,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 30,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 31,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 32,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 33,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 34,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 35,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 36,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 37,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 38,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 39,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 40,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 41,	
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 42,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 43,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 44,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 45,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 46,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 47,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 48,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 49,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 50,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 51,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 52,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 53,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 54,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 55,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 56,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 57,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 58,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 59,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 60,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 61,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 62,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 63,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 64,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 65,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 66,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 67,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 68,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 69,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 70,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 71,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 72,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 73,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 74,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 75,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 76,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 77,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "10/31/2019",
+  "packing_sent": 5,
+  "packing_received": 0,
+  "items_sent": 100,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 78,
+  "shipment_id": "FBA15D540P1R",
+  "created_on": "09/01/2020",
+  "packing_sent": 5,
+  "packing_received": 3,
+  "items_sent": 100,
+  "items_received": 75,
+  "status": "Receiving"
+  },
+  {
+  "id": 79,
+  "shipment_id": "FBA15D047RJG",
+  "created_on": "10/05/2020",
+  "packing_sent": 7,
+  "packing_received": 2,
+  "items_sent": 110,
+  "items_received": 60,
+  "status": "Receiving"
+  },
+  {
+  "id": 78,
+  "shipment_id": "FBA15CZZDK97",
+  "created_on": "10/09/2020",
+  "packing_sent": 6,
+  "packing_received": 0,
+  "items_sent": 200,
+  "items_received": 0,
+  "status": "Created"
+  },
+  {
+  "id": 80,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 81,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 82,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 83,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 84,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 85,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 86,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 87,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 88,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 89,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 90,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 91,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 92,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 93,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 94,
+  "shipment_id": "FBA15CZKXJN4",
+  "created_on": "10/08/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  },
+  {
+  "id": 95,
+  "shipment_id": "FBA15CXXXJN4",
+  "created_on": "10/07/2020",
+  "packing_sent": 3,
+  "packing_received": 3,
+  "items_sent": 70,
+  "items_received": 70,
+  "status": "Completed"
+  }
+]

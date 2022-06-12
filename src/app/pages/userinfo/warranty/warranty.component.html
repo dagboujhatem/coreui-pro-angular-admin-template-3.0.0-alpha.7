@@ -1,0 +1,33 @@
+<div class="fade-in">
+    <c-card>
+        <c-card-body>
+            <c-row style="padding-left:15px">
+                <c-switch shape="pill" color="primary" class="mr-3"></c-switch>
+                {{"Add AdValorem warranty to all your orders shipped by Cubyn" | translate}}
+            </c-row>
+            <c-row style="padding-left:15px">
+                <c-switch shape="pill" color="primary" class="mr-3"></c-switch>
+                {{"Active delivery signed warranty on express orders" | translate}}
+                
+            </c-row>
+
+            <br>
+            <c-alert [color]="'dark'">
+                <span>
+                    {{"COVID-19: From March 27th 2020, AdValorem warranty option is no longer available for Cubyn Standard orders." | translate}}
+                    
+                </span>
+              </c-alert>
+              <br>
+              <c-alert [color]="'dark'">
+                <span>
+                    {{"For a price of 1% of the item value, warranty will cover your shipping for the declared amount of your item in the inventory, more information" | translate}}
+                    
+                    <a href="#">{{"here" | translate}}</a>
+                </span>
+              </c-alert>
+            <br>
+            <button cButton color="primary" class="mfe-1" type="submit">{{"Confirm" | translate}}</button>
+        </c-card-body>
+    </c-card>
+</div>

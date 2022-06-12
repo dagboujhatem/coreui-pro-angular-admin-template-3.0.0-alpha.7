@@ -1,0 +1,61 @@
+<div class="fade-in">
+    <c-card class="card-no-toolbar">
+        <c-card-header>
+            <span style="color:#3c6dff;font-size:1.5em;">{{"Products" | translate}}</span>
+        </c-card-header>
+        <c-card-body>
+            <c-tabset boxed="true" [activeTab]="activeTab">
+                <c-tablist>
+                    <c-tab>
+                        {{"Reconcile" | translate}}
+                    </c-tab>
+                </c-tablist>
+                <c-tab-content>
+                    <c-tab-pane>
+                        <c-row>
+                            <span class="title">
+                                1.{{"Upload documents" | translate}}
+                            </span>
+                        </c-row>
+                        <hr>
+                        <c-row>
+                            <c-col>
+                                {{"no additional documents required." | translate}}
+                            </c-col>
+                            <c-col style="text-align: right;">
+                                <button cButton color="primary">{{"Upload" | translate}}</button>
+                            </c-col>
+                        </c-row>
+                        <c-row>
+                            <span class="title">
+                                2.{{"Provide additional information" | translate}}
+                            </span>
+                        </c-row>
+                        <hr>
+                        <c-row>
+                            <c-col>
+                                {{"Please provide additional information to help use research your shipment, such as:" | translate}}<br>
+                                - {{"Known discrepancies" | translate}}<br>
+                                - {{"Description of shipping boxes" | translate}}<br>
+                                - {{"UPC/EAN of units, if different from listed." | translate}}<br>
+                                - {{"Any missed prep activity." | translate}}<br>
+                                <textarea cTextarea style="width: 100%;"></textarea>
+                                <br>
+                                <span style="float: right;">
+                                    2000 {{"characters remaining" | translate}}
+                                </span>
+
+                            </c-col>
+                        </c-row>
+                        <c-row>
+                            <c-col style="text-align: right;">
+                                <button cButton color="primary">{{"Preview your request" | translate}}</button>
+                            </c-col>
+                            
+                        </c-row>
+                    </c-tab-pane>
+                </c-tab-content>
+            </c-tabset>
+        </c-card-body>
+    </c-card>
+</div>

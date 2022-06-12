@@ -1,0 +1,90 @@
+<li
+  class="c-header-nav-item dropdown d-md-down-none mx-2"
+  dropdown
+  placement="bottom right"
+>
+  <a
+    [routerLink]
+    class="c-header-nav-link"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    dropdownToggle
+    (click)="false"
+  >
+    <c-icon name="cil-envelope-open" size="lg"></c-icon>
+    <c-badge shape="pill" color="info">{{ items }}</c-badge>
+  </a>
+  <div
+    class="dropdown-menu dropdown-menu-right dropdown-menu-lg pt-0"
+    *dropdownMenu
+    aria-labelledby="message-dropdown"
+  >
+    
+    <a [routerLink] class="dropdown-item">
+      <div class="message">
+        <div>
+          <small class="text-muted">John Doe</small>
+          <small class="text-muted float-right mt-1">Just now</small>
+        </div>
+        <div class="text-truncate font-weight-bold">
+          <span class="text-danger mfe-1">!</span>
+          <span>Important message</span>
+        </div>
+        <div class="small text-muted text-truncate">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt...
+        </div>
+      </div>
+    </a>
+    <a [routerLink] class="dropdown-item">
+      <div class="message">
+        <div>
+          <small class="text-muted">John Doe</small>
+          <small class="text-muted float-right mt-1">5 minutes ago</small>
+        </div>
+        <div class="text-truncate font-weight-bold">
+          Lorem ipsum dolor sit amet
+        </div>
+        <div class="small text-muted text-truncate">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt...
+        </div>
+      </div>
+    </a>
+    <a [routerLink] class="dropdown-item">
+      <div class="message">
+        <div>
+          <small class="text-muted">John Doe</small>
+          <small class="text-muted float-right mt-1">1:52 PM</small>
+        </div>
+        <div class="text-truncate font-weight-bold">
+          Lorem ipsum dolor sit amet
+        </div>
+        <div class="small text-muted text-truncate">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt...
+        </div>
+      </div>
+    </a>
+    <a [routerLink] class="dropdown-item">
+      <div class="message">
+        <div>
+          <small class="text-muted">John Doe</small>
+          <small class="text-muted float-right mt-1">4:03 PM</small>
+        </div>
+        <div class="text-truncate font-weight-bold">
+          Lorem ipsum dolor sit amet
+        </div>
+        <div class="small text-muted text-truncate">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt...
+        </div>
+      </div>
+    </a>
+    <a [routerLink] class="dropdown-item text-center">
+      <strong>View all messages</strong>
+    </a>
+  </div>
+</li>

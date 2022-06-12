@@ -1,0 +1,76 @@
+<div class="row justify-content-between custom-toolbar">
+  <div class="col align-self-end">
+    <button routerLink="/inventory" cButton color="dark" style="float: right;">{{"Cancel" | translate}}</button>
+  </div>
+</div>
+<div class="fade-in">
+  <c-card class="card-toolbar">
+    <c-card-header>
+      {{"NEW BUNDLE" | translate}}
+    </c-card-header>
+    <c-card-body>
+      <c-alert color="dark">
+        {{"A bundle is a group of SKU sold together." | translate}}
+        {{"When a bundle SKU is added to an order, all SKU of this bundle are added to the order." | translate}} 
+      </c-alert>
+
+      <c-row>
+        <h4 style="padding-left: 15px;">
+          <c-badge color="primary"><i class="fa fa-file-o"></i></c-badge>
+        </h4>
+        <span class="step-enable">&nbsp;&nbsp;{{"Bundle description" | translate}}</span>
+      </c-row>
+
+      <c-row>
+        <c-col col="3">
+          <label for="sku">{{"SKU bundle" | translate}}</label><br>
+          <input cInput id="sku" required />
+        </c-col>
+        <c-col col="3">
+          <label for="bundle">{{"Bundle name" | translate}}</label><br>
+          <input cInput id="bundle" required />
+        </c-col>
+      </c-row>
+      <br>
+      <c-row>
+        <h4 style="padding-left: 15px;">
+          <c-badge color="primary"><i class="fa fa-list"></i></c-badge>
+        </h4>
+        <span class="step-enable">&nbsp;&nbsp;{{"SKU selection" | translate}}</span>
+      </c-row>
+      <br>
+      <div style="text-align: right;margin: 10px;">
+        <button cButton (click)="addBundle()" color="dark">{{"Add a new SKU" | translate}}</button>
+      </div>
+      
+      <br>
+      <c-row>
+        <c-col col="5" style="text-align: center;">
+          {{"SKU" | translate}}
+        </c-col>
+        <c-col col="5" style="text-align: center;">
+          {{"QUANTITY" | translate}}
+        </c-col>
+      </c-row>
+      <c-row *ngFor="let bundle of bundles;let i=index;">
+        <c-col col="5">
+          <input cInput [(ngModel)]="bundle.sku" />
+        </c-col>
+        <c-col col="5">
+          <input cInput [(ngModel)]="bundle.quentity" />
+        </c-col>
+        <c-col col="2" style="text-align: right;">
+          <i *ngIf="bundles.length>1" (click)="deleteBundle(i)" cButton class="fa fa-close"
+            style="box-shadow: none;"></i>
+        </c-col>
+      </c-row>
+      <br>
+      <br>
+      <hr>
+      <br>
+      <button cButton (click)="createBundle()" color="primary" style="float: right;margin: 10px;">{{"Create bundle" | translate}}</button>
+      <!--button cButton routerLink="/inventory" color="dark"     style="float: right;margin: 10px;">Cencel</button-->
+
+    </c-card-body>
+  </c-card>
+</div>

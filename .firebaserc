@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shipment-97350": {
+      "hosting": {
+        "ng": [
+          "shipment-97350"
+        ]
+      }
+    }
+  }
+}

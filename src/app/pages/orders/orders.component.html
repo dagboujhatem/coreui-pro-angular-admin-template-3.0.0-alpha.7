@@ -1,0 +1,252 @@
+
+<div class="row justify-content-between custom-toolbar">
+  <div class="col align-self-end">
+    <button routerLink="/orders/sendorders" cButton color="primary" style="float: right;margin-left:10px;">{{"Add" | translate}}</button>
+    <div class="nav-item dropdown" dropdown style="float: right;">
+      <button cButton color="dark" href dropdownToggle (click)="false" aria-controls="your-dropdown" style="margin-left:10px">{{"Import" | translate}}</button>
+      <div id="your-dropdown" class="dropdown-menu" aria-labelledby="your-dropdown" *dropdownMenu>
+        <a href="assets/data/orders-template.xlsx" download="orders-template.xlsx" class="dropdown-item">
+          {{"Get the template" | translate}}
+        </a>
+        <a cButton (click)="fileupload.click()" class="dropdown-item" style="box-shadow: none;">
+          <input [hidden]="true" #fileupload accept=".pdf" type="file" id="fileupload"
+            (change)="handleFileInput($event.target.files)">
+            {{"Import a file" | translate}}
+        </a>
+        <a routerLink="/apps" class="dropdown-item">
+          {{"Sync with API" | translate}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row custom-toolbar">
+  
+</div>
+<c-row>
+  <c-col lg="12">
+    <c-card class="card-toolbar">
+      <c-card-header>
+        {{"INVENTORY" | translate}}
+        <button cButton (click)="export()" color="primary" style="float: right;margin-right: 10px;">{{"Export" | translate}}</button>
+      </c-card-header>
+      <c-card-body>
+        <table class="table table-responsive-sm table-sm">
+          <colgroup>
+            <col class="column-1" />
+            <col class="column-1"/>
+            <col class="column-3"/>
+            <col class="column-1"/>
+            <col class="column-4"/>
+            <col class="column-4"/>
+            <col class="column-1"/>
+            <col class="column-4"/>
+            <col class="column-1"/>
+            <col class="column-1"/>
+          </colgroup>
+          <thead>
+            <tr>
+              
+              <th style="text-align: center;vertical-align: top;">
+                <input cInput type="checkbox"
+                  [(ngModel)]="allCheck" (change)="changeAllCheck()">
+              </th>
+              <th class="table-header-custom">{{"STATUS" | translate}}</th>
+              <th class="table-header-custom">{{"ORDER REFERENCE" | translate}}</th>
+              <th class="table-header-custom">{{"TRACKING ID" | translate}}</th>
+              <th class="table-header-custom">{{"CREATION DATE" | translate}}</th>
+              <th class="table-header-custom">{{"RECIPIENT" | translate}}</th>
+              <th class="table-header-custom">{{"COUNTRY" | translate}}</th>
+              <th class="table-header-custom">{{"DELIVERY MODE" | translate}}</th>
+              <th class="table-header-custom">{{"OPTIONS" | translate}}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th colspan="2">
+                <select class="form-control" [(ngModel)]="filterStatus" id="exampleFormControlSelect1" style="font-size: small;">
+                  <option></option>
+                  <option>Created</option>
+                  <option>in fulfillment</option>
+                  <option>In transit</option>
+                  <option>In delivering</option>
+                  <option>Delivered</option>
+                  <option>Exception</option>
+                </select>
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="filterOrderReference" class="form-control" />
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="filterTrackingID" class="form-control" />
+              </th>
+              <th>
+                <input cInput placeholder="Date" #drp="bsDaterangepicker" bsDaterangepicker
+                  [(ngModel)]="filterCreationDate" style="font-size: 0.7em;">
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="filterRecipient" class="form-control" />
+              </th>
+              <th></th>
+              <th></th>
+              <th style="text-align: center;">
+                <!--button type="button" (click)="search()" class="btn btn-outline-secondary btn-transparent">Search</button-->
+              </th>
+              <th style="text-align: right;">
+                <button type="button" (click)="reset()" class="btn btn-outline-secondary" 
+                [ngClass]="{'reset-active':!(filterStatus==''&&filterOrderReference==''&&filterTrackingID==''&&filterRecipient==''&&filterCreationDate==null),
+                            'reset-deactive':(filterStatus==''&&filterOrderReference==''&&filterTrackingID==''&&filterRecipient==''&&filterCreationDate==null)}">{{"Reset" | translate}}</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center;">
+            <tr *ngFor="let orders of getFilteredPageData">
+              <td><input cInput type="checkbox" [(ngModel)]="orders.checked"></td>
+              <td style="text-align: center;">
+                <c-badge [color]="getBadge(orders.status)">{{
+                  orders.status
+                  }}</c-badge>
+              </td>
+              <td class="table-body-text">{{ orders.orderReference }}</td>
+              <td class="table-body-text">{{ orders.trackingID }}</td>
+              <td class="table-body-text">{{ orders.creationDate }}</td>
+              <td class="table-body-text">{{ orders.recipient }}</td>
+              <td class="table-body-text">{{ orders.country }}</td>
+              <td class="table-body-text">{{ orders.deliveryMode }}</td>
+              <td style="text-align: center;"> <i cButton class="fa fa-edit" style="box-shadow: none;"></i> {{orders.options }}</td>
+              <td style="text-align: right;">
+                <div class="nav-item dropdown" dropdown>
+                  <button type="button" class="btn btn-outline-secondary btn-transparent" size="sm" href dropdownToggle (click)="false"
+                    aria-controls="your-dropdown" id="link-dropdown">...</button>
+                  <div id="your-dropdown" class="dropdown-menu" aria-labelledby="link-dropdown" *dropdownMenu>
+                    <a class="dropdown-item">
+                      {{"Download the return label" | translate}}
+                    </a>
+                    <a cButton (click)="showMoreDetails(orders)" class="dropdown-item" style="box-shadow: none;">
+                      {{"Show more details" | translate}}
+                    </a>
+                    <a href="https://track.cubyn.com/CUB254229128?lang=en" class="dropdown-item">
+                      {{"Track parcel" | translate}}
+                    </a>
+                    <a routerLink="/orders/showdetails" class="dropdown-item">
+                      {{"Report an incident" | translate}}
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination [totalItems]="getFilteredData.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="page"
+          [(ngModel)]="currentPage" [maxSize]="4" [rotate]="true"></pagination>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+<c-sidebar *ngIf="asideShow" id="aside" #aside="cSidebar" [aside]="true" colorScheme="light" [overlaid]="true" size="xl" [show]="true"
+  [breakpoint]="true">
+  <!--aside content-->
+  <c-card style="padding-top:20px;height: 100%;">
+    <c-card-header>
+      <c-toggler cSidebarToggle="aside">
+        <button [hidden]="true" #asideToggle [class]="'c-sidebar-close'">
+          <c-icon name="cil-x"></c-icon>
+        </button>
+      </c-toggler>
+      <button (click)="toggleAside()" [class]="'c-sidebar-close'">
+        <c-icon name="cil-x"></c-icon>
+      </button>
+      <div *ngIf="currentOrders!=null" style="padding-top: 20px;">{{"Order" | translate}} {{currentOrders.orderReference}}</div>
+    </c-card-header>
+    <c-card-body style="overflow: auto;">
+      <div *ngIf="currentOrders!=null">
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="orderreference">{{"Order reference" | translate}}</label>
+            <input disabled cInput id="orderreference" [(ngModel)]="currentOrders.orderReference" />
+          </c-col>
+          <c-col>
+            <label class="col-form-label" for="trackingid">{{"Tracking ID" | translate}}</label>
+            <input disabled cInput id="trackingid" [(ngModel)]="currentOrders.trackingID" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="creationdate">{{"Creation date" | translate}}</label>
+            <input disabled cInput id="creationdate" [(ngModel)]="currentOrders.creationDate" />
+          </c-col>
+          <c-col>
+            <label class="col-form-label" for="validationDate">{{"Validation date" | translate}}</label>
+            <input disabled cInput id="validationDate" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <h4 style="padding-left: 10px;">
+            <c-badge color="primary"><i class="fa fa-dot-circle-o"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Recipient" | translate}}</span>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="firstname">{{"First name" | translate}}</label>
+            <input cInput id="firstname" />
+          </c-col>
+          <c-col>
+            <label class="col-form-label" for="lastname">{{"Last name" | translate}}</label>
+            <input cInput id="lastname" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="organization">{{"Organization" | translate}}</label>
+            <input cInput id="organization" />
+          </c-col>
+          <c-col>
+            <label class="col-form-label" for="phone">{{"Phone" | translate}}</label>
+            <input cInput id="phone" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="email">{{"Email" | translate}}</label>
+            <input cInput id="email" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <h4 style="padding-left: 10px;">
+            <c-badge color="primary"><i class="fa fa-share-alt"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Destination address" | translate}}</span>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="street">{{"Street" | translate}}</label>
+            <input cInput id="street" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="streetdetails">{{"Street" | translate}}({{"details" | translate}})</label>
+            <input cInput id="streetdetails" />
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col>
+            <label class="col-form-label" for="zip">{{"Zip code" | translate}}</label>
+            <input cInput id="zip" />
+          </c-col>
+          <c-col>
+            <label class="col-form-label" for="city">{{"City" | translate}}</label>
+            <input cInput id="city" />
+          </c-col>
+          <c-col>
+            <label class="col-form-label" for="country">{{"Country" | translate}}</label>
+            <input cInput id="country" />
+          </c-col>
+        </c-row>
+      </div>
+    </c-card-body>
+  </c-card>
+</c-sidebar>
+<div *ngIf="asideShow" (click)="toggleAside()" class="c-sidebar-backdrop c-show"></div>

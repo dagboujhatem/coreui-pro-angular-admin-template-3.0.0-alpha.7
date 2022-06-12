@@ -1,0 +1,31 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles with default layout.
+@import "~@coreui/coreui-pro/scss/coreui";
+@import "~@coreui/icons/css/brand.min.css";
+@import "~@coreui/icons/css/free.min.css";
+@import "~@coreui/chartjs";
+
+// Some temp fixes
+@import "fixes";
+
+// If you want to add something do it here
+@import "custom";
+
+@import '~ngx-bootstrap/datepicker/bs-datepicker.scss';
+@import './src/scss/vendors/bs-datepicker/datepicker';
+
+.c-sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1030;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000015;
+    transition: 0.3s;
+  }
+  .c-sidebar-backdrop.c-show {
+    opacity: 0.5;
+  }

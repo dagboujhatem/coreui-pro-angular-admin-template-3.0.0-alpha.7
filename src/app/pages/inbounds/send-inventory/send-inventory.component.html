@@ -1,0 +1,235 @@
+<div class="row justify-content-between custom-toolbar">
+  <div class="col align-self-end">
+    <button routerLink="/inbounds" cButton color="dark" style="float: right;">{{"Cancel" | translate}}</button>
+  </div>
+</div>
+<div class="fade-in">
+  <c-card class="card-toolbar">
+    <c-card-header>
+      {{"SEND INVENTORY" | translate}}
+    </c-card-header>
+    <c-card-body>
+      <div *ngIf="file != null" style="float: right;color: gray;">
+        <i class="fa fa-file"></i>
+        {{fileName}}
+        <i (click)="deleteFile()" cButton class="fa fa-close" style="box-shadow: none;color: gray;"></i>
+        <br>
+      </div>
+      <c-row>
+        <h4 *ngIf="productsArray.length==0" style="padding-left: 20px;">
+          <c-badge color="primary">1</c-badge>
+        </h4>
+        <h4 *ngIf="productsArray.length>0">
+          <c-badge color="primary">1</c-badge>
+        </h4>
+        <span class="step-enable">&nbsp;&nbsp;{{"Add Products" | translate}}</span>
+      </c-row>
+      <c-row *ngIf="productsArray.length==0">
+        <span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          {{"Upload your inbound file" | translate}} (.xlsx and .csv accepted).
+        </span>
+        <a href="assets/data/storage-inbound-template.xlsx" download="storage-inbound-template.xlsx">
+          {{"Get the template" | translate}} 
+        </a>
+      </c-row>
+
+      <div *ngIf="productsArray.length>0||enableAddProduct">
+        <c-row>
+          <c-col>
+            {{"Declare products include in your stock shipment by adding new lines or importing a file. More information on help center" | translate}} <a href="#">{{"here" | translate}}</a>
+          </c-col>
+        </c-row>
+        <c-row>
+          <c-col col="1">
+            <c-switch shape="pill" color="primary" class="mr-3"></c-switch>
+          </c-col>
+          <c-col>
+            <span class="table-body-text">{{"Display lines with errors only" | translate}}</span>
+          </c-col>
+          <c-col style="text-align: right;">
+            <button *ngIf="!step1Confirmed&&file!=null" cButton (click)="enableNewLine()" color="dark" style="margin:10px;">{{"Add a new line" | translate}}</button>
+            
+          </c-col>
+        </c-row>
+        
+        <table class="table table-responsive-sm table-sm">
+          <colgroup>
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th  class="table-header-custom">{{"SKU" | translate}}</th>
+              <th class="table-header-custom">{{"PRODUCT NAME" | translate}}</th>
+              <th class="table-header-custom">{{"BARCODE" | translate}}</th>
+              <th class="table-header-custom">{{"QUANTITY" | translate}}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <thead *ngIf="enableNew">
+            <tr>
+              <th scope="col">
+                <input type="text" [(ngModel)]="editSKU" class="form-control" />
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="editProductName" class="form-control" />
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="editBarcode" class="form-control" />
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="editQuentity" class="form-control" />
+              </th>
+              <th>
+                <button type="button" (click)="addNewLine()" class="btn btn-outline-secondary" [ngClass]="{'reset-active':(editSKU!=''&&editProductName!=''&&editBarcode!=''&&editQuentity!=''), 'reset-deactive':!(editSKU!=''&&editProductName!=''&&editBarcode!=''&&editQuentity!='')}">{{"Add" | translate}}</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productsArray;let i=index;">
+              <td class="table-body-text">{{ product["SKU*"] }}</td>
+              <td class="table-body-text">{{ product["Product name*"] }}</td>
+              <td class="table-body-text">{{ product["Barcode*"] }}</td>
+              <td class="table-body-text">{{ product["Quantity*"] }}</td>
+              <td><i (click)="deleteProduct(i)" cButton class="fa fa-close" style="box-shadow: none;color: gray;"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <span class="table-body-text">
+          {{"You have added" | translate}} {{productsArray.length}} {{"products" | translate}}.
+        </span>
+        <c-row>
+          <c-col>
+            <span class="table-body-text">
+              {{"please verify your information before continuing" | translate}}
+            </span>
+          </c-col>
+          <c-col>
+            <select cSelect [(ngModel)]="pdfType" required>
+              <option value=1>Jusqu'à 21 etiquettes de 63.5 * 38.1 mm sur feuille A4</option>
+              <option value=2>Jusqu'à 24 etiquettes de 63.5 * 33.9 mm sur feuille A4</option>
+              <option value=3>Jusqu'à 24 etiquettes de 64.6 * 33.8 mm sur feuille A4</option>
+              <option value=4>Jusqu'à 24 etiquettes de 66 * 33.9 mm sur feuille A4</option>
+              <option value=5>Jusqu'à 24 etiquettes de 66 * 35 mm sur feuille A4</option>
+              <option value=6>Jusqu'à 24 etiquettes de 70 * 36 mm sur feuille A4</option>
+              <option value=7>Jusqu'à 24 etiquettes de 70 * 37 mm sur feuille A4</option>
+              <option value=8>Jusqu'à 27 etiquettes de 63.5 * 29.6 mm sur feuille A4</option>
+              <option value=9>Jusqu'à 30 etiquettes de 1 * 2 5/8 pouces sur lettre US</option>
+              <option value=10>Jusqu'à 40 etiquettes de 52.5 * 29.7 mm sur feuille A4</option>
+              <option value=11>Jusqu'à 44 etiquettes de 48.5 * 25.4 mm sur feuille A4</option>
+            </select>
+          </c-col>
+          <c-col>
+            <button [disabled]="!step1Confirmed" cButton (click)="printProductsLabels()" color="primary"
+              style="float: right;">{{"Print products labels" | translate}}</button>
+          </c-col>
+          <c-col>
+            <button *ngIf="!step1Confirmed" cButton (click)="confirmStep1()" color="primary">{{"Confirm" | translate}}</button>
+          </c-col>
+        </c-row>
+      </div>
+      <button *ngIf="!step1Confirmed" cButton (click)="fileupload.click()" color="dark" style="float: right;margin-right: 10px;">{{"Import a file" | translate}}</button>
+      <button *ngIf="!step1Confirmed&&file==null" cButton (click)="enableAddProducts()" color="dark" style="float: right;margin-right:10px;">{{"Add product" | translate}}</button>
+      <input [hidden]="true" #fileupload accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv"
+        type="file" id="fileupload" (change)="handleFileInput($event.target.files)">
+      <br>
+      <hr>
+      <c-row *ngIf="!step1Confirmed">
+        <h4 style="padding-left: 20px;">
+          <c-badge color="dark">2</c-badge>
+        </h4>
+        <span class="step-disable">&nbsp;&nbsp;{{"Shipping details" | translate}}</span>
+      </c-row>
+      <c-row *ngIf="step1Confirmed">
+        <h4 style="padding-left: 20px;">
+          <c-badge color="primary">2</c-badge>
+        </h4>
+        <span class="step-enable">&nbsp;&nbsp;{{"Shipping details" | translate}}</span>
+      </c-row>
+      <c-row *ngIf="step1Confirmed">
+        <c-col col="1"></c-col>
+        <c-col col="5">
+          <c-row>
+            <i class="fa fa-share-alt-square theme-color" style="font-size:2em;"></i>
+            <span class="step-enable">&nbsp;&nbsp;{{"Warehouse address" | translate}}</span>
+          </c-row>
+          <c-row>
+            {{warehouseName}}<br>
+            {{warehouseAddress}}<br>
+            {{warehousePostcode}} {{warehouseCity}}<br>
+            {{warehouseCountry}}
+          </c-row>
+        </c-col>
+        
+        <c-col col="5">
+          <c-row>
+            <span class="material-icons theme-color" style="font-size:2.2em;">ballot</span>
+            <span class="step-enable">&nbsp;&nbsp;{{"Number of packages" | translate}}</span>
+          </c-row>
+          <c-row>
+            <label class="col-form-label" for="numberofpackages">{{"Number of packages" | translate}} ({{"boxes or pallets containing your products or shipment from stock" | translate}}
+              )</label>
+            <input cInput id="numberofpackages" [(ngModel)]="numberOfBox" placeholder="Number of Packages" />
+          </c-row>
+        </c-col>
+        <c-col col="1"></c-col>
+      </c-row>
+      
+      <br>
+      <c-row *ngIf="step1Confirmed">
+        <c-col col="2"></c-col>
+        <c-col col="8">
+          <c-row>
+            <i class="fa fa-info-circle" style="color: #3c6dff;font-size: 2em;"></i>
+            &nbsp;&nbsp;<h4 style="color: #3c6dff;">{{"Instruction for applying box labels" | translate}}</h4>
+          </c-row>
+          <span>
+            {{"Select a paper type that is compatible with your printer format. As each box label is unique. make sure that you print all box labels. Do not photocopy, reuse or modify labels for use on additional boxes. A box ID label is required even if the box contains a single sellable unit." | translate}}
+          </span>
+          <c-row>
+            <c-col style="position: relative;text-align: center;">
+              <img src="assets/img/icons/spd_non_pcp_instrucions.png"/>
+              <span style="position: absolute;top:113px;right:67%;">Amazon FBA box ID label</span>
+              <span style="position: absolute;top:129px;right:67%;">Carrier label</span>
+            </c-col>
+          </c-row>
+          <c-row>
+            <c-col>
+              <label class="col-form-label" for="numberofboxes" style="font-weight: bold;">{{"Number of Boxes" | translate}}</label>
+            </c-col>
+            <c-col>
+              <label class="col-form-label" for="papertype2" style="font-weight: bold;">{{"paper type" | translate}}</label>
+            </c-col>
+            <c-col>
+            </c-col>
+          </c-row>
+          <c-row>
+              <c-col style="text-align: right;padding-top: 5px;">
+                <span id="numberofboxes">{{numberOfBoxes}}</span>
+              </c-col>
+              <c-col>
+                <select id="papertype2" cSelect [(ngModel)]="pdfType2" required>
+                  <option value=1>Plain paper</option>
+                  <option value=2>Blank rectangular label</option>
+                  <option value=3>Thermal printing paper</option>
+                </select>
+              </c-col>
+              <c-col>
+                <button cButton (click)="printBoxLabels()" color="primary" style="float: right;">{{"Print box labels" | translate}}</button>
+              </c-col>
+          </c-row>
+        </c-col>
+        <c-col col="2"></c-col>
+      </c-row>
+      <div *ngIf="step1Confirmed">
+        <hr><br>
+        <button cButton (click)="confirmStep2()" color="primary" style="float: right;margin:10px;">{{"Confirm" | translate}}</button>
+        <button cButton (click)="backToStep1()" color="dark" style="float: right;margin:10px;">{{"Back" | translate}}</button>
+        <br><br>
+      </div>
+    </c-card-body>
+  </c-card>
+</div>

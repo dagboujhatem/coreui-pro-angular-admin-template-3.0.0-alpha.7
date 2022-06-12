@@ -1,0 +1,42 @@
+<li class="c-header-nav-item dropdown" dropdown placement="bottom">
+  <a [routerLink] class="c-header-nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+    <c-icon name="cil-user" size="lg"></c-icon>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right pt-0" *dropdownMenu aria-labelledby="account-dropdown">
+    <div class="dropdown-header text-center bg-light">
+      <strong>{{"Account" | translate}}</strong>
+    </div>
+    <a routerLink="/userinfo/profile" class="dropdown-item">
+      <c-icon name="cil-user" class="mfe-2"></c-icon>
+      {{"Profile" | translate}}
+    </a>
+    <a routerLink="/userinfo/password" class="dropdown-item">
+      <i class="fa fa-key" style="padding-right: 10px;"></i>
+      {{"Password" | translate}}
+    </a>
+    <a routerLink="/userinfo/return" class="dropdown-item">
+      <c-icon name="cil-cart" class="mfe-2"></c-icon>
+      {{"Return" | translate}}
+    </a>
+    <a routerLink="/userinfo/customs" class="dropdown-item">
+      <c-icon name="cil-settings" class="mfe-2"></c-icon>
+      {{"Customs" | translate}}
+    </a>
+    <a routerLink="/userinfo/warranty" class="dropdown-item">
+      <c-icon name="cil-shield-alt" class="mfe-2"></c-icon>
+      {{"Warranty" | translate}}
+    </a>
+    <a routerLink="/userinfo/payment" class="dropdown-item">
+      <c-icon name="cil-dollar" class="mfe-2"></c-icon>
+      {{"Payments" | translate}}
+    </a>
+    <a routerLink="/userinfo/termsofuse" class="dropdown-item">
+      <c-icon name="cil-file" class="mfe-2"></c-icon>
+      {{"Terms of use" | translate}}
+    </a>
+    <a routerLink="/login" class="dropdown-item">
+      <c-icon name="cil-lock-locked" class="mfe-2"></c-icon>
+      {{"Logout" | translate}}
+    </a>
+  </div>
+</li>

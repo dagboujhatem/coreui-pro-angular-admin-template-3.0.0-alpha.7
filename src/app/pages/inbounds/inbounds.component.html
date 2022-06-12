@@ -1,0 +1,93 @@
+<div class="row justify-content-between custom-toolbar">
+  <div class="col align-self-end">
+    <button routerLink="/inbounds/sendinventory" cButton color="primary" style="float: right;">{{"Send inventory" | translate}}</button>
+  </div>
+</div>
+<c-row>
+  <c-col lg="12">
+    <c-card class="card-toolbar">
+      <c-card-header>
+        {{"Shipping Queue" | translate}}
+      </c-card-header>
+      <c-card-body>
+        <table class="table table-responsive-sm table-sm">
+          <colgroup>
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th  class="table-header-custom">{{"Shipment ID" | translate}}</th>
+              <th class="table-header-custom">{{"Status" | translate}}</th>
+              <th class="table-header-custom">{{"Created on" | translate}}</th>
+              <th class="table-header-custom">{{"Packing received" | translate}}</th>
+              <th class="table-header-custom">{{"Items stored" | translate}}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th scope="col">
+                <input type="text" [(ngModel)]="filterID" class="form-control" />
+              </th>
+              <th>
+                <select class="form-control" [(ngModel)]="filterStatus" id="exampleFormControlSelect1">
+                  <option></option>
+                  <option>Created</option>
+                  <option>Completed</option>
+                  <option>Receiving</option>
+                </select>
+              </th>
+              <th>
+                <input cInput placeholder="Date" #drp="bsDaterangepicker" bsDaterangepicker [(ngModel)]="filterDate" style="font-size: 0.7em;">
+              </th>
+              <th></th>
+              <th></th>
+              <th style="text-align: right;">
+                <!--button type="button" (click)="search()" class="btn btn-outline-secondary btn-transparent">Search</button-->
+                <button type="button" (click)="reset()" class="btn btn-outline-secondary" 
+                [ngClass]="{'reset-active':!(filterID==''&&filterStatus==''&&filterDate==null),'reset-deactive':(filterID==''&&filterStatus==''&&filterDate==null)}">{{"Reset" | translate}}</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center;">
+            <tr *ngFor="let inbounds of getFilteredPageData" style="height: 41px;">
+              <td class="table-body-text">{{ inbounds.shipment_id }}</td>
+              <td>
+                <c-badge [color]="getBadge(inbounds.status)">{{
+                  inbounds.status
+                  }}</c-badge>
+              </td>
+              <td class="table-body-text">{{ inbounds.created_on }}</td>
+              <td class="table-body-text">{{ inbounds.packing_received}} / {{ inbounds.packing_sent}}</td>
+              <td class="table-body-text">{{ inbounds.items_received }} / {{ inbounds.items_sent }}</td>
+              <td  style="text-align: right;">
+                  <div class="nav-item dropdown" dropdown>
+                    <button type="button" class="btn btn-outline-secondary btn-transparent" size="sm" href dropdownToggle
+                      (click)="false" aria-controls="your-dropdown" id="link-dropdown">...</button>
+                    <div id="your-dropdown" class="dropdown-menu" aria-labelledby="link-dropdown" *dropdownMenu>
+                      <a class="dropdown-item" href="#">{{"Print items labels" | translate}}</a>
+                      <a class="dropdown-item" href="#">{{"Export as CSV" | translate}}</a>
+                      <a routerLink="/inbounds/reportdetails" class="dropdown-item">
+                        {{"Report an incident" | translate}}
+                      </a>
+                      <a routerLink="/inbounds/showdetails" class="dropdown-item">
+                        {{"Show more details" | translate}}
+                      </a>
+                    </div>
+                  </div>
+              </td>
+              
+            </tr>
+          </tbody>
+        </table>
+        <pagination [totalItems]="getFilteredData.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="page"
+          [(ngModel)]="currentPage" [maxSize]="4" [rotate]="true"></pagination>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

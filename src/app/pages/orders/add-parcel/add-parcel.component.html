@@ -1,0 +1,187 @@
+<div class="row justify-content-between custom-toolbar">
+  <div class="col align-self-end">
+    <button routerLink="/orders" cButton color="dark" style="float: right;">{{"Cancel" | translate}}</button>
+  </div>
+</div>
+<div class="fade-in">
+  <c-card class="card-toolbar">
+    <c-card-header>
+      {{"ADD PARCEL" | translate}}
+    </c-card-header>
+    <c-card-body>
+      <c-row>
+        <h4 style="padding-left:10px;">
+          <c-badge color="primary" >1</c-badge>
+        </h4>
+        <span class="step-enable">&nbsp;&nbsp;{{"Shipping details" | translate}}</span>
+      </c-row>
+      <div *ngIf="!confirmed">
+        <c-row>
+          <c-col sm="3">
+            <label class="col-form-label" for="orderreference">{{"Order reference" | translate}}</label>
+            <input cInput id="orderreference" />
+          </c-col>
+        </c-row>
+        <br>
+        <c-row>
+          <h4 style="padding-left:10px;">
+            <c-badge color="primary"><i class="fa fa-dot-circle-o"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Recipient" | translate}}</span>
+        </c-row>
+        <c-row>
+          <c-col sm="2">
+            <c-form-group>
+              <label class="col-form-label" for="firstname">{{"First name" | translate}}</label>
+              <input cInput id="firstname" />
+            </c-form-group>
+          </c-col>
+          <c-col sm="2">
+            <label class="col-form-label" for="lastname">{{"Last name" | translate}}</label>
+            <input cInput id="lastname" />
+          </c-col>
+          <c-col sm="2">
+            <label class="col-form-label" for="organization">{{"Organization" | translate}}</label>
+            <input cInput id="organization" />
+          </c-col>
+          <c-col sm="2">
+            <label class="col-form-label" for="email">{{"Email" | translate}}</label>
+            <input cInput id="email" />
+          </c-col>
+          <c-col sm="2">
+            <label class="col-form-label" for="phone">{{"Phone" | translate}}</label>
+            <input cInput id="phone" />
+          </c-col>
+        </c-row>
+        
+        <c-row>
+          <h4 style="padding-left:10px;">
+            <c-badge color="primary"><i class="fa fa-share-alt"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Destination address" | translate}}</span>
+        </c-row>
+        <c-row>
+          <c-col sm="4">
+            <label class="col-form-label" for="street">{{"Street" | translate}}</label>
+            <input cInput id="street" required />
+          </c-col>
+          <c-col sm="2">
+            <label class="col-form-label" for="zip">{{"Zip code" | translate}}</label>
+            <input cInput id="zip" required />
+          </c-col>
+          <c-col sm="3">
+            <label class="col-form-label" for="city">{{"City" | translate}}</label>
+            <input cInput id="city" required />
+          </c-col>
+          <c-col sm="3">
+            <label class="col-form-label" for="country">{{"Country" | translate}}</label>
+            <input cInput id="country" required />
+          </c-col>
+          <c-col sm="4">
+            <label class="col-form-label" for="streetdetails">{{"Street" | translate}}({{"details" | translate}})</label>
+            <input cInput id="streetdetails" />
+          </c-col>
+          <c-col sm="4">
+            <label class="col-form-label" for="additional">{{"Additional information" | translate}}</label>
+            <input cInput id="additional" />
+          </c-col>
+        </c-row>
+        <br>
+        <c-row>
+          <h4 style="padding-left:10px;">
+            <c-badge color="primary"><i class="fa fa-square-o"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Shipping options" | translate}}</span>
+        </c-row>
+        <c-row>
+          <c-col sm="3">
+            <label class="col-form-label" for="deliverymode">{{"Delivery mode" | translate}}</label>
+            <select class="form-control" id="deliverymode" required>
+              <option></option>
+              <option>Relay point</option>
+              <option>Standard</option>
+              <option>Express</option>
+            </select>
+          </c-col>
+          <c-col sm="3">
+            <label class="col-form-label" for="deliverysigned">{{"Delivery signed" | translate}}</label>
+            <select class="form-control" id="deliverysigned" required>
+              <option>No</option>
+              <option>Yes</option>
+            </select>
+          </c-col>
+        </c-row>
+        <br>
+        <c-row>
+          <h4 style="padding-left:10px;">
+            <c-badge color="primary"><i class="fa fa-file-o"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Delivery documents" | translate}}</span>
+        </c-row>
+        <c-row>
+          <button cButton (click)="fileupload.click()" color="primary"
+            style="padding: 0px;padding-left: 4px;padding-right: 4px;margin-left: 15px;">+</button>
+          <input [hidden]="true" #fileupload accept=".pdf" type="file" id="fileupload"
+            (change)="handleFileInput($event.target.files)">
+          &nbsp;&nbsp;{{"Add another file" | translate}}
+
+        </c-row>
+        <c-row>
+          <br><span>{{fileName}}</span><br>
+        </c-row>
+        <button (click)="confirmStep1()" cButton color="primary" style="float: right;">{{"Confirm" | translate}}</button>
+        <br>
+      </div>
+      <hr><br>
+      <c-row *ngIf="!confirmed">
+        <h4 style="padding-left:10px;">
+          <c-badge color="dark">2</c-badge>
+        </h4>
+        <span class="step-disable">&nbsp;&nbsp;{{"Add products" | translate}}</span>
+      </c-row>
+      <div *ngIf="confirmed">
+        <c-row>
+          <h4 style="padding-left:10px;">
+            <c-badge color="primary">2</c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Add products" | translate}}</span>
+        </c-row>
+        <br>
+        <div style="text-align:right">
+          <button cButton (click)="addBundle()" color="dark" style="margin-right: 10px;">{{"Add a new SKU" | translate}}</button>
+        </div>
+        
+        <br>
+        <c-row>
+          <c-col col="5" style="text-align: center;">
+            {{"SKU" | translate}}
+          </c-col>
+          <c-col col="5" style="text-align: center;">
+            {{"QUANTITY" | translate}}
+          </c-col>
+        </c-row>
+        <c-row *ngFor="let bundle of bundles;let i=index;">
+          <c-col col="5">
+            <input cInput [(ngModel)]="bundle.sku" required />
+          </c-col>
+          <c-col col="5">
+            <input cInput [(ngModel)]="bundle.quentity" required />
+          </c-col>
+          <c-col col="2" style="text-align: right;">
+            <i *ngIf="bundles.length>1" (click)="deleteBundle(i)" cButton class="fa fa-close"
+              style="box-shadow: none;"></i>
+          </c-col>
+        </c-row>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <button cButton routerLink="/orders" color="primary" style="float: right;margin:10px;">{{"Confirm" | translate}}</button>
+        <button type="button" routerLink="/orders" class="btn btn-outline-secondary btn-transparent"
+          style="float: right;margin:10px">{{"Cancel" | translate}}</button>
+
+      </div>
+
+    </c-card-body>
+  </c-card>
+</div>

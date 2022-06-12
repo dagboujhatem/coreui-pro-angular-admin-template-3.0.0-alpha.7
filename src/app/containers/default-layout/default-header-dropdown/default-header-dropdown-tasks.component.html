@@ -1,0 +1,71 @@
+<li
+  class="c-header-nav-item dropdown d-md-down-none mx-2"
+  dropdown
+  placement="bottom right"
+>
+  <a
+    [routerLink]
+    class="c-header-nav-link"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    dropdownToggle
+    (click)="false"
+  >
+    <c-icon name="cil-list-rich" size="lg"></c-icon>
+    <c-badge shape="pill" color="warning">{{ items }}</c-badge>
+  </a>
+  <div
+    class="dropdown-menu dropdown-menu-right dropdown-menu-lg pt-0"
+    *dropdownMenu
+    aria-labelledby="tasks-dropdown"
+  >
+    <div class="dropdown-header bg-light">
+      <strong>You have {{ items }} pending tasks</strong>
+    </div>
+    <a [routerLink] class="dropdown-item d-block">
+      <div class="small mb-1 text-justify">
+        Upgrade NPM & Bower<span class="float-right"><strong>0%</strong></span>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="info" [value]="0"></c-progress-bar>
+      </c-progress>
+    </a>
+    <a [routerLink] class="dropdown-item d-block">
+      <div class="small mb-1 text-justify">
+        ReactJS Version<span class="float-right"><strong>25%</strong></span>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="danger" [value]="25"></c-progress-bar>
+      </c-progress>
+    </a>
+    <a [routerLink] class="dropdown-item d-block">
+      <div class="small mb-1 text-justify">
+        VueJS Version<span class="float-right"><strong>50%</strong></span>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="warning" [value]="50"></c-progress-bar>
+      </c-progress>
+    </a>
+    <a [routerLink] class="dropdown-item d-block">
+      <div class="small mb-1 text-justify">
+        Add new layouts<span class="float-right"><strong>75%</strong></span>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="info" [value]="75"></c-progress-bar>
+      </c-progress>
+    </a>
+    <a [routerLink] class="dropdown-item d-block">
+      <div class="small mb-1 text-justify">
+        Angular 9 Version<span class="float-right"><strong>95%</strong></span>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="success" [value]="95"></c-progress-bar>
+      </c-progress>
+    </a>
+    <a [routerLink] class="dropdown-item text-center border-top">
+      <strong>View all tasks</strong>
+    </a>
+  </div>
+</li>

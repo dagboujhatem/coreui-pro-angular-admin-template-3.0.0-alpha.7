@@ -1,0 +1,172 @@
+<div class="fade-in">
+    <div *ngIf="installedMode">
+        <div class="text-right custom-toolbar">
+            <button cButton (click)="changeMode()" color="primary" style="margin-right: 15px;">+</button>
+        </div>
+
+        <c-card class="card-toolbar">
+            <c-card-header>
+                {{"MY APPLICATIONS" | translate}}
+            </c-card-header>
+            <c-card-body>
+                <c-alert *ngIf="installedAppsData.length==0">
+                    {{"No application is connected to your Cubyn account" | translate}}
+                </c-alert>
+                <c-row>
+                    <c-col sm="6" *ngFor="let app of installedAppsData;let i=index;"
+                        style="padding-top: 15px;padding-bottom: 15px;">
+                        <c-row>
+                            <c-col col="2">
+                                <img width="24px" height="24px" [src]="app.icon" />
+                            </c-col>
+                            <c-col style="vertical-align: middle;" col="6">
+                                {{app.name}}
+                            </c-col>
+                            <c-col col="2">
+                                <button cButton (click)="removeApp(i)" color="danger"
+                                    style="padding-top: 1px;padding-bottom: 1px;">
+                                    <i class="fa fa-bitbucket"></i>
+                                </button>
+                            </c-col>
+                            <c-col col="2">
+                                <button cButton (click)="editApp(app)" color="primary"
+                                    style="padding-top: 1px;padding-bottom: 1px;">
+                                    <i class="fa fa-wrench"></i>
+                                </button>
+                            </c-col>
+                        </c-row>
+                    </c-col>
+                </c-row>
+                <c-alert>
+                    {{"Apps are billed 99€ per month, first app and Cubyn API connection are free." | translate}}
+                </c-alert>
+            </c-card-body>
+        </c-card>
+    </div>
+    <div *ngIf="!installedMode">
+        <div class="text-right custom-toolbar">
+            <button cButton (click)="changeMode()" color="dark" style="margin-right: 15px;">{{"Cancel" | translate}}</button>
+        </div>
+
+        <c-card class="card-toolbar">
+            <c-card-header>
+                {{"ALL APPLICATIONS" | translate}}
+            </c-card-header>
+            <c-card-body>
+                <c-row>
+                    <c-col sm="6" *ngFor="let app of getallAppsData" style="padding-top: 15px;padding-bottom: 15px;">
+                        <c-row>
+                            <c-col col="2">
+                                <img width="50px" height="50px" [src]="app.icon" />
+                            </c-col>
+                            <c-col style="padding-top:16px;" col="7">
+                                {{app.name}}
+                            </c-col>
+                            <c-col col="3" style="padding-top:10px;">
+                                <button cButton (click)="installApp(app)" color="primary">
+                                    {{app.installType | translate}}
+                                </button>
+                            </c-col>
+                        </c-row>
+                    </c-col>
+                </c-row>
+            </c-card-body>
+        </c-card>
+    </div>
+</div>
+<c-sidebar *ngIf="asideShow" id="aside" #aside="cSidebar" [aside]="true" colorScheme="light" [overlaid]="true" size="xl" [show]="true"
+  [breakpoint]="true">
+    <!--aside content-->
+    <c-card style="padding-top:20px;height: 100%;">
+        <c-card-header>
+            <c-toggler cSidebarToggle="aside">
+
+                <button [hidden]="true" #asideToggle [class]="'c-sidebar-close'">
+                  <c-icon name="cil-x"></c-icon>
+                </button>
+            </c-toggler>
+            <button (click)="toggleAside()" [class]="'c-sidebar-close'">
+            <c-icon name="cil-x"></c-icon>
+            </button>
+            <div *ngIf="!installedMode" style="padding-top: 20px;">{{"Install API Cubyn" | translate}}</div>
+            <div *ngIf="installedMode" style="padding-top: 20px;">{{"Edit API Cubyn" | translate}}</div>
+        </c-card-header>
+        <c-card-body  style="overflow: auto;">
+            <div *ngIf="currentApp!=null" style="padding-left: 20px;">
+                <c-row>
+                    <c-col>
+                        <label class="col-form-label" for="applicationname">{{"Application name" | translate}}</label>
+                        <input cInput id="applicationname" [(ngModel)]="currentApp.name" />
+                    </c-col>
+                </c-row>
+
+                <br>
+                <c-row>
+                    <h4>
+                        <c-badge color="primary"><i class="fa fa-dot-circle-o"></i></c-badge>
+                    </h4>
+                    <span class="step-enable">&nbsp;&nbsp;{{"Your API Key" | translate}}</span>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col>
+                        <input cInput id="apikey" [(ngModel)]="currentApp.apikey" />
+                    </c-col>
+                </c-row>
+
+                <br>
+                <c-row>
+                    <h4>
+                        <c-badge color="primary"><i class="fa fa-dot-circle-o"></i></c-badge>
+                    </h4>
+                    <span class="step-enable">&nbsp;&nbsp;{{"Webhooks" | translate}}</span>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col>
+                        <label class="col-form-label" for="webhooks">{{"URL of the Webhook" | translate}} ({{"on which we send information for your parcel event update" | translate}})</label>
+                        <input cInput id="webhooks" [(ngModel)]="currentApp.webhooks" />
+                    </c-col>
+                </c-row>
+                <br>
+                <c-row>
+                    <c-col>
+                        <input cInput type="checkbox"> &nbsp;
+                        <span>
+                            {{"Subscribe to the event parcel:picked" | translate}}
+                        </span>
+                    </c-col>
+                </c-row>
+                <c-row>
+                    <c-col>
+                        <input cInput type="checkbox"> &nbsp;
+                        <span>
+                            {{"Subscribe to the event parcel:shipped" | translate}}
+                        </span>
+                    </c-col>
+                </c-row>
+                <c-row>
+                    <c-col>
+                        <input cInput type="checkbox"> &nbsp;
+                        <span>
+                            {{"Subscribe to the event parcel:carrier-status:changed" | translate}}
+                        </span>
+                    </c-col>
+                </c-row>
+                <c-row>
+                    <c-col>
+                        <input cInput type="checkbox"> &nbsp;
+                        <span>
+                            {{"Subscribe to the event parcel:deleted" | translate}}
+                        </span>
+                    </c-col>
+                </c-row>
+                <div class="text-right">
+                    <button cButton (click)="cancel()" color="dark" style="margin: 10px;">{{"Cancel" | translate}}</button>
+                    <button cButton (click)="confirm()" color="primary" style="margin: 10px;">{{"Confirm" | translate}}</button>
+                </div>
+            </div>
+        </c-card-body>
+    </c-card>
+</c-sidebar>
+<div *ngIf="asideShow" (click)="toggleAside()" class="c-sidebar-backdrop c-show"></div>

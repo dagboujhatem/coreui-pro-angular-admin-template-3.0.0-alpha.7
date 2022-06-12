@@ -1,0 +1,351 @@
+<c-tabset>
+  <c-tablist
+    class="nav nav-tabs nav-underline nav-underline-primary"
+    role="tablist"
+  >
+    <c-tab>
+      <c-icon name="cil-list"></c-icon>
+    </c-tab>
+    <c-tab>
+      <c-icon name="cil-speech"></c-icon>
+    </c-tab>
+    <c-tab>
+      <c-icon name="cil-settings"></c-icon>
+    </c-tab>
+  </c-tablist>
+  <c-tab-content>
+    <c-tab-pane>
+      <div cListGroup [accent]="true">
+        <div
+          cListGroupItem
+          accent="secondary"
+          class="bg-light text-center font-weight-bold text-muted text-uppercase small"
+        >
+          Today
+        </div>
+        <a
+          [routerLink]
+          cListGroupItem
+          accent="warning"
+          [action]="true"
+          [divider]="true"
+        >
+          <div class="c-avatar float-right">
+            <img
+              class="c-avatar-img"
+              src="assets/img/avatars/7.jpg"
+              alt="user@email.com"
+            />
+          </div>
+          <div>Meeting with <strong>Lucas</strong></div>
+          <small class="text-muted mfe-3">
+            <c-icon name="cil-calendar"></c-icon>
+            &nbsp; 1 - 3pm
+          </small>
+          <small class="text-muted">
+            <c-icon name="cil-location-pin"></c-icon>
+            &nbsp; Palo Alto, CA
+          </small>
+        </a>
+        <a [routerLink] cListGroupItem [action]="true" accent="info">
+          <div class="c-avatar float-right">
+            <img
+              class="c-avatar-img"
+              src="assets/img/avatars/4.jpg"
+              alt="user@email.com"
+            />
+          </div>
+          <div>Skype with <strong>Megan</strong></div>
+          <small class="text-muted mfe-3">
+            <c-icon name="cil-calendar"></c-icon>
+            &nbsp; 4 - 5pm
+          </small>
+          <small class="text-muted">
+            <c-icon name="cib-skype"></c-icon>
+            &nbsp; On-line
+          </small>
+        </a>
+        <div
+          cListGroupItem
+          accent="secondary"
+          class="bg-light text-center font-weight-bold text-muted text-uppercase small"
+        >
+          Tomorrow
+        </div>
+        <a
+          [routerLink]
+          cListGroupItem
+          accent="danger"
+          [action]="true"
+          [divider]="true"
+        >
+          <div>New UI Project - <strong>deadline</strong></div>
+          <small class="text-muted mfe-3">
+            <c-icon name="cil-calendar"></c-icon>
+            &nbsp; 10 - 11pm
+          </small>
+          <small class="text-muted">
+            <c-icon name="cil-home"></c-icon>
+            &nbsp; creativeLabs HQ
+          </small>
+          <div class="c-avatars-stack mt-2 pr-3">
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/2.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/3.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/4.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/5.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/6.jpg"
+                alt="user@email.com"
+              />
+            </div>
+          </div>
+        </a>
+        <a
+          [routerLink]
+          cListGroupItem
+          accent="success"
+          [action]="true"
+          [divider]="true"
+        >
+          <div><strong>#10 Startups.Garden</strong> Meetup</div>
+          <small class="text-muted mfe-3">
+            <c-icon name="cil-calendar"></c-icon>
+            &nbsp; 1 - 3pm</small
+          >
+          <small class="text-muted">
+            <c-icon name="cil-location-pin"></c-icon>
+            &nbsp; Palo Alto, CA
+          </small>
+        </a>
+        <a
+          [routerLink]
+          cListGroupItem
+          accent="primary"
+          [action]="true"
+          [divider]="true"
+        >
+          <div><strong>Team meeting</strong></div>
+          <small class="text-muted mfe-3">
+            <c-icon name="cil-calendar"></c-icon>
+            &nbsp; 4 - 6pm
+          </small>
+          <small class="text-muted">
+            <c-icon name="cil-home"></c-icon>
+            &nbsp; creativeLabs HQ
+          </small>
+          <div class="c-avatars-stack mt-2 pr-3">
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/2.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/3.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/4.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/5.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/6.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/7.jpg"
+                alt="user@email.com"
+              />
+            </div>
+            <div class="c-avatar c-avatar-xs">
+              <img
+                class="c-avatar-img"
+                src="assets/img/avatars/8.jpg"
+                alt="user@email.com"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </c-tab-pane>
+    <c-tab-pane class="p-3">
+      <div
+        class="message"
+        *ngFor="let message of [1, 2, 3, 4, 5]; index as i; last as isLast"
+      >
+        <div class="py-3 pb-5 mfe-3 float-left">
+          <div class="c-avatar">
+            <img
+              class="c-avatar-img"
+              src="assets/img/avatars/7.jpg"
+              alt="user@email.com"
+            />
+            <span class="c-avatar-status bg-success"></span>
+          </div>
+        </div>
+        <div>
+          <small class="text-muted">Lukasz Holeczek</small>
+          <small class="text-muted float-right mt-1">1:52 PM</small>
+        </div>
+        <div class="text-truncate font-weight-bold">
+          Lorem ipsum dolor sit amet
+        </div>
+        <small class="text-muted"
+          >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt...</small
+        >
+        <hr *ngIf="!isLast" />
+      </div>
+    </c-tab-pane>
+    <c-tab-pane class="p-3">
+      <h6>Settings</h6>
+      <div class="c-aside-options">
+        <div class="clearfix mt-4">
+          <small><b>Option 1</b></small>
+          <c-switch
+            color="success"
+            size="sm"
+            shape="pill"
+            labelOn="On"
+            labelOff="Off"
+            checked
+            tabindex="0"
+            class="float-right"
+            >test</c-switch
+          >
+        </div>
+        <p>
+          <small class="text-muted"
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</small
+          >
+        </p>
+      </div>
+      <div class="c-aside-options">
+        <div class="clearfix mt-3">
+          <small><b>Option 2</b></small>
+          <c-switch
+            color="success"
+            size="sm"
+            shape="pill"
+            labelOn="On"
+            labelOff="Off"
+            checked
+            class="float-right"
+            tabindex="0"
+          ></c-switch>
+        </div>
+        <div>
+          <small class="text-muted"
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</small
+          >
+        </div>
+      </div>
+      <div class="c-aside-options">
+        <div class="clearfix mt-3">
+          <small><b>Option 3</b> disabled</small>
+          <c-switch
+            color="success"
+            size="sm"
+            shape="pill"
+            labelOn="On"
+            labelOff="Off"
+            disabled
+            class="float-right"
+          ></c-switch>
+        </div>
+      </div>
+      <div class="c-aside-options">
+        <div class="clearfix mt-3">
+          <small><b>Option 4</b></small>
+          <c-switch
+            color="success"
+            size="sm"
+            shape="pill"
+            labelOn="On"
+            labelOff="Off"
+            checked
+            class="float-right"
+            tabindex="0"
+          ></c-switch>
+        </div>
+      </div>
+      <hr />
+      <h6>System Utilization</h6>
+      <div class="text-uppercase mb-1 mt-4">
+        <small><b>CPU Usage</b></small>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="info" [value]="25"></c-progress-bar>
+      </c-progress>
+      <small class="text-muted">348 Processes. 1/4 Cores.</small>
+      <div class="text-uppercase mb-1 mt-2">
+        <small><b>Memory Usage</b></small>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="warning" [value]="70"></c-progress-bar>
+      </c-progress>
+      <small class="text-muted">11444GB/16384MB</small>
+      <div class="text-uppercase mb-1 mt-2">
+        <small><b>SSD 1 Usage</b></small>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="danger" [value]="95"></c-progress-bar>
+      </c-progress>
+      <small class="text-muted">243GB/256GB</small>
+      <div class="text-uppercase mb-1 mt-2">
+        <small><b>SSD 2 Usage</b></small>
+      </div>
+      <c-progress size="xs">
+        <c-progress-bar color="success" [value]="10"></c-progress-bar>
+      </c-progress>
+      <small class="text-muted">25GB/256GB</small>
+    </c-tab-pane>
+  </c-tab-content>
+</c-tabset>

@@ -1,0 +1,12 @@
+<c-card  style="max-width: 1100px;margin-left: auto;margin-right: auto;">
+  <c-card-header>
+    <i class="fa fa-bar-chart"></i>&nbsp;&nbsp;{{"SHIPMENTS" | translate}} - {{"Last" | translate}} 12 {{"months" | translate}}
+  </c-card-header>
+  <c-card-body>
+    <div class="chart-wrapper">
+      <canvas cNoZoneBaseChart class="chart" [datasets]="barChartData" [labels]="barChartLabels"
+        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+        style="height: 200px;"></canvas>
+    </div>
+  </c-card-body>
+</c-card>

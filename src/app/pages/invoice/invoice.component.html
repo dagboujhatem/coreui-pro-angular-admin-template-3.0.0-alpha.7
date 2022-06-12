@@ -1,0 +1,45 @@
+<c-row>
+  <c-col lg="12">
+    <c-card class="card-no-toolbar">
+      <c-card-header>
+        {{"INVOICES" | translate}}
+      </c-card-header>
+      <c-card-body>
+        <table class="table table-responsive-sm table-sm">
+          <colgroup>
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="table-header-custom">{{"NUMBER" | translate}}</th>
+              <th class="table-header-custom">{{"PERIOD" | translate}}</th>
+              <th class="table-header-custom">{{"AMOUNT" | translate}}</th>
+              <th class="table-header-custom">{{"DUE DATE" | translate}}</th>
+              <th class="table-header-custom">{{"INVOICE" | translate}}</th>
+              <th class="table-header-custom">{{"DETAILS" | translate}}</th>
+            </tr>
+          </thead>
+          <tbody  style="text-align: center;">
+            <tr *ngFor="let invoice of getFilteredPageData">
+              <td class="table-body-text">{{ invoice.number }}</td>
+              <td class="table-body-text">{{ invoice.period }}</td>
+              <td class="table-body-text">{{ invoice.amount }}</td>
+              <td class="table-body-text">{{ invoice.dueDate }}</td>
+              <td><i cButton class="fa fa-file-text"
+                  style="color: gray;box-shadow: none;"></i></td>
+              <td><i cButton class="fa fa-file-text"
+                  style="color: gray;box-shadow: none;"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination [totalItems]="getFilteredData.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="page"
+          [(ngModel)]="currentPage" [maxSize]="4" [rotate]="true"></pagination>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

@@ -1,0 +1,79 @@
+<div class="fade-in">
+    <c-card class="card-no-toolbar">
+        <c-card-header>
+            <span style="font-weight: bold;color:#3c6dff">{{getTotalShipment()}}</span> {{"Shipments" | translate}} - {{"Last" | translate}} <span style="font-weight: bold;color:#3c6dff">30</span> {{"days" | translate}}
+        </c-card-header>
+        <c-card-body>
+            <c-row>
+                <div class="pie-analytics">
+                    <canvas cNoZoneBaseChart class="chart" [datasets]="datasets" [options]="options"
+                        [chartType]="doughnutChartType"></canvas>
+                    <div style="width: 100px;">
+                        <h4>{{"Delivered" | translate}}</h4>
+                        {{getShipment(4)}} {{"Shipments" | translate}}
+                    </div>
+                </div>
+                <div class="deliver-items">
+                    <div class="deliver-item">
+                        <img src="assets/img/icons/deliver-icon.png">
+                        <div class="deliver-status">
+                            <strong><h5>{{"Delivered" | translate}}</h5></strong>
+                            <h6>{{getShipment(4)}}
+                                {{"Shipments" | translate}}
+                            </h6>
+                        </div>
+                        <div class="deliver-percent col" style="text-align:right;">
+                            <h4>{{getPercent(4)}}%</h4>
+                        </div>
+                    </div>
+                    <div class="deliver-item">
+                        <img src="assets/img/icons/exception-icon.png">
+                        <div class="deliver-status">
+                            <strong><h5>{{"Exception" | translate}}</h5></strong>
+                            <h6>{{getShipment(1)}}
+                                {{"Shipments" | translate}}
+                            </h6>
+                        </div>
+                        <div class="deliver-percent col" style="text-align:right;">
+                            <h4>{{getPercent(1)}}%</h4>
+                        </div>
+                    </div>
+                    <div class="deliver-item">
+                        <img src="assets/img/icons/out_delivery.png">
+                        <div class="deliver-status">
+                            <strong><h5>{{"Out For Delivery" | translate}}</h5></strong>
+                                <h6>{{getShipment(3)}}
+                                    {{"Shipments" | translate}}
+                                </h6>
+                        </div>
+                        <div class="deliver-percent col" style="text-align:right;">
+                            <h4>{{getPercent(3)}}%</h4>
+                        </div>
+                    </div>
+                    <div class="deliver-item">
+                        <img src="assets/img/icons/attempt.png">
+                        <div class="deliver-status">
+                            <strong><h5>{{"Failed Attempt" | translate}}</h5></strong>
+                                <h6>{{getShipment(0)}}
+                                    {{"Shipments" | translate}}</h6>
+                        </div>
+                        <div class="deliver-percent col" style="text-align:right;">
+                            <h4>{{getPercent(0)}}%</h4>
+                        </div>
+                    </div>
+                    <div class="deliver-item">
+                        <img src="assets/img/icons/in-transit-icon.png">
+                        <div class="deliver-status">
+                            <strong><h5>{{"In Transit" | translate}}</h5></strong>
+                                <h6>{{getShipment(2)}}
+                                    {{"Shipments" | translate}}</h6>
+                        </div>
+                        <div class="deliver-percent col" style="text-align:right;">
+                            <h4>{{getPercent(2)}}%</h4>
+                        </div>
+                    </div>
+                </div>
+            </c-row>
+        </c-card-body>
+    </c-card>
+</div>

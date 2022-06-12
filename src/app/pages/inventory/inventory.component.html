@@ -1,0 +1,128 @@
+<div class="row justify-content-between custom-toolbar">
+  <div class="col align-self-end">
+    <button routerLink="/inbounds/sendinventory" cButton color="primary" style="float: right;">{{"Send inventory" | translate}}</button>
+    <button routerLink="/inventory/createbundle" cButton color="dark" style="float: right;margin-left:10px;margin-right:10px;">{{"Create bundle" | translate}}</button>
+  </div>
+</div>
+<c-row>
+  <c-col lg="12">
+    <c-card class="card-toolbar">
+      <c-card-header>
+        {{"INVENTORY" | translate}}
+        <button cButton (click)="export()" color="primary" style="float: right;margin-right: 10px;">{{"Export" | translate}}</button>
+      </c-card-header>
+      <c-card-body>
+        <table class="table table-responsive-sm table-sm">
+          <colgroup>
+            <col class="column-1" />
+            <col class="column-4" />
+            <col class="column-1" />
+            <col class="column-1" />
+            <col class="column-1" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th class="table-header-custom">{{"SKU" | translate}}</th>
+              <th class="table-header-custom">{{"PRODUCT NAME" | translate}}</th>
+              <th class="table-header-custom">{{"AVAILABLE STOCK" | translate}}</th>
+              <th class="table-header-custom">{{"RESERVED STOCK" | translate}}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th scope="col">
+                <input type="text" [(ngModel)]="filterSKU" class="form-control" />
+              </th>
+              <th>
+                <input type="text" [(ngModel)]="filterProductName" class="form-control" />
+              </th>
+              <th></th>
+              <th></th>
+              <th style="text-align: right;">
+                <!--button type="button" (click)="search()" class="btn btn-outline-secondary btn-transparent">Search</button-->
+                <button type="button" (click)="reset()" class="btn btn-outline-secondary" 
+                [ngClass]="{'reset-active':!(filterSKU==''&&filterProductName==''),'reset-deactive':(filterSKU==''&&filterProductName=='')}">{{"Reset" | translate}}</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let inventory of getFilteredPageData">
+              <td class="table-body-text">{{ inventory.sku }}</td>
+
+              <td class="table-body-text">{{ inventory.productName }}</td>
+              <td  class="table-body-text">{{ inventory.availableStock }}</td>
+              <td  class="table-body-text">{{ inventory.reservedStock }}</td>
+              <td style="text-align: right;">
+                <div class="nav-item dropdown" dropdown>
+                  <button type="button" class="btn btn-outline-secondary btn-transparent" size="sm" href dropdownToggle (click)="false"
+                    aria-controls="your-dropdown" id="link-dropdown">...</button>
+                  <div id="your-dropdown" class="dropdown-menu" aria-labelledby="link-dropdown" *dropdownMenu>
+                    <a (click)="editInventory(inventory)" class="dropdown-item">
+                      {{"Edit" | translate}}
+                    </a>
+                    <a routerLink="/inventory/showdetails" class="dropdown-item">
+                      {{"Report an incident" | translate}}
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <pagination [totalItems]="getFilteredData.length" (pageChanged)="pageChanged($event)" [itemsPerPage]="page"
+          [(ngModel)]="currentPage" [maxSize]="4" [rotate]="true"></pagination>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<c-sidebar *ngIf="asideShow" id="aside" #aside="cSidebar" [aside]="true" colorScheme="light" [overlaid]="true" size="xl" [show]="true"
+  [breakpoint]="true">
+
+
+  <!--aside content-->
+  <c-card style="padding-top:20px;height: 100%;">
+    <c-card-header>
+      <c-toggler cSidebarToggle="aside">
+
+        <button [hidden]="true" #asideToggle [class]="'c-sidebar-close'">
+          <c-icon name="cil-x"></c-icon>
+        </button>
+      </c-toggler>
+      <button (click)="toggleAside()" [class]="'c-sidebar-close'">
+        <c-icon name="cil-x"></c-icon>
+      </button>
+      <div *ngIf="currentInventory!=null" style="padding-top: 20px;">{{"SKU" | translate}} {{currentInventory.sku}}</div>
+      <!--aside internal toggler-->
+
+    </c-card-header>
+    <c-card-body style="margin: 10px;overflow: auto;">
+        <c-row>
+          <h4>
+            <c-badge color="primary"><i class="fa fa-edit"></i></c-badge>
+          </h4>
+          <span class="step-enable">&nbsp;&nbsp;{{"Edit product" | translate}}</span>
+        </c-row>
+        <br>
+        <c-row *ngIf="currentInventory!=null">
+          <label class="col-form-label" for="currentproductname">{{"Product name" | translate}}</label>
+          <input cInput id="currentproductname" [(ngModel)]="currentInventory.productName" />
+        </c-row>
+        <br>
+        <c-row *ngIf="currentInventory!=null">
+          <label class="col-form-label" for="currentsku">{{"SKU" | translate}}</label>
+          <input cInput id="currentsku" [(ngModel)]="currentInventory.sku" />
+        </c-row>
+        <br>
+        <c-row *ngIf="currentInventory!=null">
+          <label class="col-form-label" for="tax">Unit value exct. tax(€)</label>
+          <input cInput id="tax" />
+        </c-row>
+        <br>
+        <button (click)="confirmEdit()" cButton color="primary" style="float: right;">{{"Confirm" | translate}}</button>
+        <!--button type="button" (click)="cancelEdit()" class="btn btn-outline-secondary" style="float: right;">Cancel</button-->
+    </c-card-body>
+  </c-card>
+</c-sidebar>
+<div *ngIf="asideShow" (click)="toggleAside()" class="c-sidebar-backdrop c-show"></div>

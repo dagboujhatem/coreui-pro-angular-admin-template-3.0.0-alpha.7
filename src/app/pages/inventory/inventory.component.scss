@@ -1,0 +1,32 @@
+:host {
+  .column-1 {
+    width: 7%;
+  }
+  .column-2 {
+    width: 40%;
+  }
+  .column-3 {
+    width: 23%;
+  }
+  .column-4 {
+    width: 15%;
+  }
+  .column-5 {
+    width: 15%;
+  }
+}
+.step-enable{
+  color:#3c6dff;
+  padding-top: 3px;
+}
+.step-disable{
+  color:gray;
+  padding-top: 3px;
+}
+.table-header-custom
+{
+  text-align: center;
+}
+.table-body-text{
+  text-align: center;
+}

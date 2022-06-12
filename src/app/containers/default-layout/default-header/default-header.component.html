@@ -1,0 +1,66 @@
+<!--<c-header [fixed]="true">-->
+<ng-container>
+  <c-toggler class="d-md-none" cSidebarToggle="sidebar" inHeader="true"></c-toggler>
+  <c-toggler class="d-sm-down-none mfs-3" cSidebarToggle="sidebar" id="sidebar-toggler" inHeader="true"></c-toggler>
+  <c-header-brand [routerLink]="'/dashboard'" class="d-lg-none">
+    <c-icon width="46" height="46" alt="CoreUI Logo" [use]="'assets/img/brand/coreui-pro.svg#signet'"></c-icon>
+  </c-header-brand>
+  <!-- header links-->
+  <!--   <ul class="c-header-nav d-md-down-none">
+    <li class="c-header-nav-item px-3">
+      <a class="c-header-nav-link" [routerLink]="'/dashboard'">Dashboard</a>
+    </li>
+    <li class="c-header-nav-item px-3">
+      <a class="c-header-nav-link" href="#">Users</a>
+    </li>
+    <li class="c-header-nav-item px-3">
+      <a class="c-header-nav-link" href="#">Settings</a>
+    </li>
+  </ul> -->
+  <!--theme toggler-->
+  <c-toggler title="Toggle Light/Dark Mode" class="ml-auto" id="theme-toggler">
+    <button [class]="'c-header-toggler'" type="button" (click)="toggleTheme()">
+      <c-icon name="cilMoon" size="lg" class="c-d-dark-none"></c-icon>
+      <c-icon name="cilSun" size="lg" class="c-d-default-none"></c-icon>
+    </button>
+  </c-toggler>
+  <!--header dropdowns-->
+  <ul class="c-header-nav">
+
+    <!--     <app-default-header-dropdown-tasks
+      class="d-md-down-none"
+    ></app-default-header-dropdown-tasks> -->
+    <app-default-header-dropdown-messages class="d-md-down-none"></app-default-header-dropdown-messages>
+    <app-default-header-dropdown-account></app-default-header-dropdown-account>
+    <app-default-header-dropdown-langs></app-default-header-dropdown-langs>
+  </ul>
+  <!--aside toggler-->
+  <!--   <c-toggler cSidebarToggle="aside" id="aside-toggler">
+    <button class="c-header-toggler c-header-nav-link" type="button">
+      <c-icon name="cilApplicationsSettings" size="lg"></c-icon>
+    </button>
+  </c-toggler> -->
+  <!--subheader-->
+  <!--   <c-subheader class="justify-content-between px-3"> -->
+  <!--breadcrumbs-->
+  <!--     <c-breadcrumb
+      class="border-0 m-0 px-0 px-md-3 c-subheader-nav"
+      cBreadcrumbRouter
+    ></c-breadcrumb> -->
+  <!--subheader links-->
+  <!--     <div class="c-subheader-nav d-md-down-none mfe-2">
+      <a class="c-subheader-nav-link" [routerLink]="'/apps/email'">
+        <c-icon name="cil-speech"></c-icon>
+      </a>
+      <a class="c-subheader-nav-link" [routerLink]="'/dashboard'">
+        <c-icon name="cil-graph"></c-icon>
+        &nbsp;Dashboard
+      </a>
+      <a class="c-subheader-nav-link" href="#">
+        <c-icon name="cil-settings"></c-icon>
+        &nbsp;Settings
+      </a>
+    </div>
+  </c-subheader> -->
+  <!--</c-header>-->
+</ng-container>

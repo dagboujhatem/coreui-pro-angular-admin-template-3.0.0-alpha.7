@@ -1,0 +1,25 @@
+// todo: temp c-dark-theme plumbing for bs-datepicker
+
+.c-dark-theme ~ * .bs-datepicker {
+  background-color: #23242d !important;
+  .bs-datepicker-head button {
+    color: darken(#23242d, 50%) !important;
+  }
+  .bs-datepicker-body td {
+    color: lighten(#23242d, 50%) !important;
+  }
+  .bs-datepicker-body {
+    border-color: lighten(#23242d, 10%) !important;
+  }
+  .bs-datepicker-body table td.disabled span,
+  .bs-datepicker-body table td span.disabled {
+    color: lighten(#23242d, 50%) !important;
+  }
+  .bs-datepicker-body table.days span.in-range:not(.select-start):before {
+    background-color: darken(#23242d, 90%) !important;
+  }
+  .bs-datepicker-buttons {
+    border-top-color: lighten(#23242d, 10%) !important;
+  }
+}
+

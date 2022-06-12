@@ -1,0 +1,197 @@
+<div class="fade-in">
+    <c-row>
+      <c-col md="12">
+        <c-card>
+          <c-card-body>
+            <c-row>
+              <c-col >
+                <form [formGroup]="simpleForm" novalidate (ngSubmit)="onSubmit()" class="needs-validation">
+                  <c-form-group>
+                    <label class="col-form-label" for="firstName">{{"First name" | translate}}</label>
+                    <input cInput
+                           id="firstName"
+                           formControlName="firstName"
+                           
+                           autocomplete="given-name"
+                           required
+                           [autofocus]="true"
+                           [ngClass]="{ 'is-invalid': (submitted || f.firstName.touched) && f.firstName.invalid, 'is-valid': f.lastName.touched && f.firstName.valid  }" />
+                    <div *ngIf="submitted && f['firstName'].invalid" class="invalid-feedback">
+                      <div *ngIf="f['firstName'].errors.required">{{"First Name is required" | translate}}</div>
+                    </div>
+                  </c-form-group>
+                  <c-form-group>
+                    <label class="col-form-label" for="lastName">{{"Last name" | translate}}</label>
+                    <input cInput
+                           id="lastName"
+                           formControlName="lastName"
+                           
+                           autocomplete="family-name"
+                           required
+                           [ngClass]="{ 'is-invalid':  (submitted || f.lastName.touched) && f.lastName.invalid, 'is-valid': f.lastName.touched && f.lastName.valid }" />
+                    <div *ngIf="submitted && f['lastName'].invalid" class="invalid-feedback">
+                      <div *ngIf="f['lastName'].errors.required">{{"Last Name is required" | translate}}</div>
+                    </div>
+                  </c-form-group>
+                  <c-form-group>
+                    <label class="col-form-label" for="organization">{{"Organization" | translate}}</label>
+                    <input cInput
+                           id="organization"
+                           formControlName="organization"
+                           
+                           autocomplete="organization"
+                           [ngClass]="{ 'is-invalid':  (submitted || f.organization.touched) && f.organization.invalid, 'is-valid': f.organization.touched && f.organization.valid }" 
+                           />
+                  </c-form-group>
+                  <c-form-group>
+                    <label class="col-form-label" for="phone">{{"Phone" | translate}}</label>
+                    <input cInput
+                           id="organization"
+                           formControlName="phone"
+                           
+                           autocomplete="phone"
+                           [ngClass]="{ 'is-invalid':  (submitted || f.phone.touched) && f.phone.invalid, 'is-valid': f.phone.touched && f.phone.valid }" 
+                           />
+                  </c-form-group>
+                  <c-form-group>
+                    <label class="col-form-label" for="email">{{"Email" | translate}}</label>
+                    <input cInput
+                           id="email"
+                           type="email"
+                           formControlName="email"
+                           
+                           autocomplete="email"
+                           required
+                           [ngClass]="{ 'is-invalid': (submitted || f.email.touched) && f.email.invalid, 'is-valid': f.email.touched && f.email.valid }" />
+                    <div *ngIf="submitted && f['email'].invalid" class="invalid-feedback">
+                      <div *ngIf="f['email'].errors.required">{{"Email is required" | translate}}</div>
+                      <div *ngIf="f['email'].errors.email">{{"Invalid email address" | translate}}</div>
+                    </div>
+                  </c-form-group>
+                  <c-row>
+                      <c-col col="4">
+                        <c-form-group>
+                            <label class="col-form-label" for="regnum">{{"Registration number" | translate}}</label>
+                            <input cInput
+                                   id="regnum"
+                                   formControlName="regnum"
+                                   
+                                   autocomplete="regnum"
+                                   required
+                                   [ngClass]="{ 'is-invalid':  (submitted || f.regnum.touched) && f.regnum.invalid, 'is-valid': f.regnum.touched && f.regnum.valid }" />
+                            <div *ngIf="submitted && f['street1'].invalid" class="invalid-feedback">
+                              <div *ngIf="f['regnum'].errors.required">{{"Registration number is required" | translate}}</div>
+                            </div>
+                          </c-form-group>
+                      </c-col>
+                      <c-col col="4">
+                        <c-form-group col="6">
+                            <label class="col-form-label" for="tax">{{"Tax identification number" | translate}}</label>
+                            <input cInput
+                                   id="tax"
+                                   formControlName="tax"
+                                   
+                                   autocomplete="tax"
+                                   required
+                                   [ngClass]="{ 'is-invalid':  (submitted || f.tax.touched) && f.tax.invalid, 'is-valid': f.tax.touched && f.tax.valid }" />
+                            <div *ngIf="submitted && f['tax'].invalid" class="invalid-feedback">
+                              <div *ngIf="f['tax'].errors.required">{{"Tax identification number is required" | translate}}</div>
+                            </div>
+                          </c-form-group>
+                    </c-col>
+                  </c-row>
+                  
+                    <c-row>
+                        <c-col col="6">
+                            <c-form-group>
+                                <label class="col-form-label" for="street1">{{"Street" | translate}}</label>
+                                <input cInput
+                                       id="street1"
+                                       formControlName="street1"
+                                       
+                                       autocomplete="street1"
+                                       required
+                                       [ngClass]="{ 'is-invalid':  (submitted || f.street1.touched) && f.street1.invalid, 'is-valid': f.street1.touched && f.street1.valid }" />
+                                <div *ngIf="submitted && f['street1'].invalid" class="invalid-feedback">
+                                  <div *ngIf="f['street1'].errors.required">{{"Street is required" | translate}}</div>
+                                </div>
+                              </c-form-group>
+                        </c-col>
+                    </c-row>
+                    <c-row>
+                        <c-col col="6">
+                            <c-form-group>
+                                <input cInput
+                                       id="street2"
+                                       formControlName="street2"
+                                       
+                                       autocomplete="street2"
+                                       required
+                                       [ngClass]="{ 'is-invalid':  (submitted || f.street2.touched) && f.street2.invalid, 'is-valid': f.street2.touched && f.street2.valid }" />
+                                <div *ngIf="submitted && f['street2'].invalid" class="invalid-feedback">
+                                  <div *ngIf="f['street2'].errors.required">{{"Street is required" | translate}}</div>
+                                </div>
+                              </c-form-group>
+                        </c-col>
+                    </c-row>
+                  
+                  <c-row>
+                        <c-col col="2">
+                            <c-form-group>
+                                <label class="col-form-label" for="zip">{{"Zip code" | translate}}</label>
+                                <input cInput
+                                       id="zip"
+                                       formControlName="zip"
+                                       
+                                       autocomplete="zip"
+                                       required
+                                       [ngClass]="{ 'is-invalid':  (submitted || f.zip.touched) && f.zip.invalid, 'is-valid': f.zip.touched && f.zip.valid }" />
+                                <div *ngIf="submitted && f['zip'].invalid" class="invalid-feedback">
+                                  <div *ngIf="f['zip'].errors.required">{{"Zip code is required" | translate}}</div>
+                                </div>
+                              </c-form-group>
+                        </c-col>
+                        <c-col col="3">
+                            <c-form-group>
+                                <label class="col-form-label" for="city">{{"City" | translate}}</label>
+                                <input cInput
+                                       id="city"
+                                       formControlName="city"
+                                       
+                                       autocomplete="city"
+                                       required
+                                       [ngClass]="{ 'is-invalid':  (submitted || f.city.touched) && f.city.invalid, 'is-valid': f.city.touched && f.city.valid }" />
+                                <div *ngIf="submitted && f['city'].invalid" class="invalid-feedback">
+                                  <div *ngIf="f['city'].errors.required">{{"City is required" | translate}}</div>
+                                </div>
+                              </c-form-group>
+                        </c-col>
+                        <c-col col="2">
+                            <c-form-group>
+                                <label class="col-form-label" for="country">{{"Country" | translate}}</label>
+                                <input cInput
+                                       id="country"
+                                       formControlName="country"
+                                       
+                                       autocomplete="country"
+                                       required
+                                       [ngClass]="{ 'is-invalid':  (submitted || f.country.touched) && f.country.invalid, 'is-valid': f.country.touched && f.country.valid }" />
+                                <div *ngIf="submitted && f['country'].invalid" class="invalid-feedback">
+                                  <div *ngIf="f['country'].errors.required">{{"Country is required" | translate}}</div>
+                                </div>
+                              </c-form-group>
+                        </c-col>
+                    </c-row>
+                    <div>{{"Your billing address is in your invoice" | translate}}</div><br>
+                  <c-form-group>
+                    <button cButton color="primary" class="mfe-1" type="submit">{{"Confirm" | translate}}</button>
+                  </c-form-group>
+                </form>
+              </c-col>
+            </c-row>
+          </c-card-body>
+        </c-card>
+      </c-col>
+    </c-row>
+  </div>
+  

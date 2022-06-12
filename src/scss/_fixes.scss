@@ -1,0 +1,56 @@
+// todo: disabled button styles
+button {
+  &:disabled {
+    cursor: default;
+  }
+  &.disabled {
+    cursor: default;
+  }
+}
+
+// todo: temp c-dark-theme plumbing for select option
+.c-dark-theme option {
+  background-color: #515b65;
+  border: 1px solid #23282c;
+}
+
+//todo: rtl
+*[dir='rtl'] {
+  //todo: rtl dropdown-menu-right
+  .dropdown-menu-right {
+    left: 0 !important;
+    right: unset !important;
+  }
+
+  //todo: rtl .navbar-brand
+  .navbar-brand {
+    margin-left: 1rem;
+    margin-right: 0;
+  }
+
+  // todo: ps
+  .ps__rail-y {
+    left: 0 !important;
+  }
+}
+
+// todo: form-group button icon margin
+//.form-group .btn c-icon:not(:only-child) {
+//  .c-icon.c-icon-sm {
+//    margin-top: 0 !important;
+//    //margin-bottom: 0 !important;
+//  }
+//}
+
+// todo: button icon margin
+.btn c-icon:not(:only-child) {
+  .c-icon {
+    margin-top: 0 !important;
+    //margin-bottom: 0 !important;
+  }
+}
+.input-group-text:only-child {
+  c-icon {
+    line-height: 0;
+  }
+}

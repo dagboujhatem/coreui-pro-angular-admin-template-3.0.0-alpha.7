@@ -1,0 +1,87 @@
+<!--sidebar-->
+<c-sidebar
+  #sidebar="cSidebar"
+  id="sidebar"
+  unfoldable="unfoldable"
+  colorScheme="light"
+>
+  <c-sidebar-brand
+    [routerLink]="null"
+    [brandFull]="{
+      src: 'assets/img/brand/coreui-pro-angular-white.svg',
+      width: 190,
+      height: 46,
+      alt: 'CoreUI Logo'
+    }"
+    [brandMinimized]="{
+      src: 'assets/img/brand/coreui-signet-white.svg',
+      width: 46,
+      height: 46,
+      alt: 'CoreUI Logo'
+    }"
+  >
+  </c-sidebar-brand>
+  <c-sidebar-nav
+    [navItems]="navItems"
+    [perfectScrollbar]="perfectScrollbarConfig"
+    [disabled]="sidebar?.minimized"
+    dropdownMode="closeInactive"
+  ></c-sidebar-nav>
+  <c-sidebar-minimizer cSidebarMinimize="sidebar"></c-sidebar-minimizer>
+</c-sidebar>
+<!--aside-->
+<c-sidebar
+  id="aside"
+  #aside="cSidebar"
+  [aside]="true"
+  colorScheme="light"
+  [overlaid]="true"
+  size="lg"
+  [show]="false"
+  [breakpoint]="false"
+  [mobile]="'xl'"
+  cOutClick
+>
+  <!--aside internal toggler-->
+  <c-toggler cSidebarToggle="aside">
+    <button [class]="'c-sidebar-close'">
+      <c-icon name="cil-x"></c-icon>
+    </button>
+  </c-toggler>
+
+  <!--aside content-->
+  <app-default-aside></app-default-aside>
+</c-sidebar>
+
+<!--main-->
+<c-wrapper>
+  <!--header-->
+  <app-email-header [fixed]="true"></app-email-header>
+  <!--app body-->
+  <c-body>
+    <main class="c-main">
+      <c-container [fluid]="true">
+        <c-card class="c-email-app">
+          <c-card-body>
+            <router-outlet></router-outlet>
+          </c-card-body>
+        </c-card>
+      </c-container>
+    </main>
+  </c-body>
+  <!--app footer-->
+  <c-footer>
+    <div>
+      <a href="https://coreui.io/pro/angular/" target="_blank">
+        CoreUI
+      </a>
+      <span> &copy; 2020 creativeLabs</span>
+    </div>
+    <div class="mfs-auto">
+      Powered by
+      <a href="https://coreui.io/pro/angular" target="_blank">
+        <span> CoreUI v3 for Angular</span>
+      </a>
+    </div>
+  </c-footer>
+</c-wrapper>

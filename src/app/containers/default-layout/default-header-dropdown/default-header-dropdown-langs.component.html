@@ -1,0 +1,29 @@
+<li
+  class="c-header-nav-item dropdown"
+  dropdown
+  placement="bottom right"
+>
+  <a
+    [routerLink]
+    class="c-header-nav-link"
+    data-toggle="dropdown"
+    role="button"
+    aria-haspopup="true"
+    aria-expanded="false"
+    dropdownToggle
+    (click)="false"
+  >
+    <img [src]="getCurrentFlag" width="20px" height="15px"/>
+  </a>
+  <div
+    class="dropdown-menu dropdown-menu-right dropdown-menu-lg pt-0"
+    *dropdownMenu
+    aria-labelledby="notifications-dropdown"
+  >
+    <a class="dropdown-item" *ngFor="let lang of langs"  (click)="changeLang(lang.name)">
+      <img [src]="lang.flag" width="20px" height="15px"/>
+      &nbsp;&nbsp;{{lang.alias}}
+      <c-icon *ngIf="getCurrentLang==lang.name" name="cil-check-alt" style="margin-left: 15px;color: green;"></c-icon>
+    </a>
+  </div>
+</li>

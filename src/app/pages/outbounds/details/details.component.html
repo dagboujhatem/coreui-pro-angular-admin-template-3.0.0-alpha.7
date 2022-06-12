@@ -1,0 +1,169 @@
+<div class="fade-in">
+  <c-card class="card-no-toolbar">
+      <c-card-header>
+          <span class="theme-color" style="font-size:1.5em;">{{"Send/Replenish Inventory" | translate}}</span>
+      </c-card-header>
+      <c-card-body>
+          <c-row style="color: #768192;">
+              <c-col>
+                  <span style="font-weight:bold">{{"Ships from" | translate}}:</span><br>
+                  IM TECH<br>
+                  magniolialaan 1 bus 2<br>
+                  sint-pleters-leeuw, 1600<br>
+                  BE
+              </c-col>
+              <c-col>
+                <span style="font-weight:bold">{{"Shipment name/ID" | translate}}:</span><br>
+                  Name:FBA(10.01.21.07:14)-1<br>
+                  ID:FBA15DGWLS3L<br>
+              </c-col>
+              <c-col>
+                <span style="font-weight:bold">{{"Ship to" | translate}}:</span><br>
+                  Amazon Fulfillment Center<br>
+                  Parc d activities des Portes de Senlis<br>
+                  1 avenue Alan Boucher<br>
+                  Series CEDEX, Oise 60452<br>
+                  FR (CDG7)
+              </c-col>
+              <c-col>
+                <span style="font-weight:bold">{{"Shipment contents" | translate}}:</span><br>
+                  5 MSKUs<br>
+                  231 Units
+              </c-col>
+              <c-col>
+                <span style="font-weight:bold">{{"Shipment status" | translate}}:</span><br>
+                  RECEIVING<br>
+                  Created:10 Jan 2021<br>
+                  Updated:14 Jan 2021
+              </c-col>
+          </c-row>
+          <hr>
+          <c-tabset boxed="true" [activeTab]="activeTab">
+              <c-tablist>
+                <c-tab>
+                  {{"Track shipment" | translate}}
+                </c-tab>
+                <c-tab>
+                  {{"Shipment contents" | translate}}
+                </c-tab>
+                <c-tab>
+                  {{"Reconcile" | translate}}
+                </c-tab>
+              </c-tablist>
+              <c-tab-content>
+                <c-tab-pane >
+                  <div>
+                    <table class="table table-responsive-sm table-sm">    
+                      <colgroup>
+                        <col class="column-1" />
+                        <col class="column-1" />
+                      </colgroup>
+                      <thead>
+                        <tr class="table-header-custom">
+                          <th>{{"Box" | translate}} #</th>
+                          <th>{{"Date of receipt" | translate}}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let track of trackData">
+                          <td class="table-body-text">{{ track.num }}</td>
+                          <td class="table-body-text">{{ track.date }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </c-tab-pane>
+                <c-tab-pane >
+                  <div>
+                      <table class="table table-responsive-sm table-sm">    
+                          <colgroup>
+                            <col class="column-1" />
+                            <col class="column-1" />
+                            <col class="column-1" />
+                            <col class="column-1" />
+                          </colgroup>
+                          <thead>
+                            <tr>
+                              <th  class="table-header-custom">{{"MSKU" | translate}}</th>
+                              <th class="table-header-custom">{{"Title" | translate}}</th>
+                              <th class="table-header-custom">{{"Shipped" | translate}}</th>
+                              <th class="table-header-custom">{{"Received" | translate}}</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let content of shipmentContents">
+                              <td class="table-body-text">{{ content.MSKU }}</td>
+                              <td class="table-body-text">{{ content.Title }}<br>{{ content.SubTitle }}</td>
+                              <td class="table-body-text">{{ content.Shipped }}</td>
+                              <td class="table-body-text">{{ content.Received }}</td>
+                            </tr>
+                            <tr>
+                              <td class="table-body-text">{{"Totals" | translate}}</td>
+                              <td></td>
+                              <td class="table-body-text">231</td>
+                              <td class="table-body-text">204</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </c-tab-pane>
+                <c-tab-pane >
+                  <c-row>
+                      <span class="title">
+                          1.{{"View discrepancies and request research" | translate}}
+                      </span>
+                  </c-row>
+                  <hr>
+                  <c-alert>
+                      <c-row>
+                          <span class="material-icons">info_outlined</span>
+                          <span>
+                            {{"Your shipment has been received in full to your inventory, and no discrepancies have been noted." | translate}}
+                            </span>
+                      </c-row>
+                  </c-alert>
+                  <c-row>
+                      <span class="title">
+                          2.{{"Upload documents" | translate}}
+                      </span>
+                  </c-row>
+                  <hr>
+                  <c-row>
+                      <c-col>
+                        {{"no additional documents required." | translate}}
+                      </c-col>
+                      <c-col style="text-align: right;">
+                          <button cButton color="primary">Upload</button>
+                      </c-col>
+                  </c-row>
+                  <c-row>
+                      <span class="title">
+                          3.{{"Provide additional information" | translate}}
+                      </span>
+                  </c-row>
+                  <hr>
+                  <c-row>
+                      <c-col>
+                        {{"Please provide additional information to help use research your shipment, such as:" | translate}}<br>
+                          - {{"Known discrepancies" | translate}}<br>
+                          - {{"Description of shipping boxes" | translate}}<br>
+                          - {{"UPC/EAN of units, if different from listed." | translate}}<br>
+                          - {{"Any missed prep activity." | translate}}<br>
+                          <textarea cTextarea style="width: 100%;"></textarea>
+                          <br>
+                          <span style="float: right;">
+                              2000 {{"characters remaining" | translate}}
+                          </span>
+                      </c-col>
+                  </c-row>
+                  <c-row>
+                    <c-col style="text-align: right;">
+                      <button cButton color="primary">{{"Preview your request" | translate}}</button>
+                    </c-col>
+                  </c-row>
+                </c-tab-pane>
+              </c-tab-content>
+            </c-tabset>
+      </c-card-body>
+  </c-card>
+</div>

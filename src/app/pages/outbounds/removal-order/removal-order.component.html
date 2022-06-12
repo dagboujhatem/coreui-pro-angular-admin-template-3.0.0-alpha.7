@@ -1,0 +1,116 @@
+<div class="row justify-content-between custom-toolbar">
+    <div class="col align-self-end">
+        <button routerLink="/outbounds" cButton color="dark" style="float: right;">{{"Cancel" | translate}}</button>
+    </div>
+</div>
+<div class="fade-in">
+    <c-card class="card-toolbar">
+        <c-card-header>
+          {{"CREATE REMOVAL ORDER" | translate}}
+        </c-card-header>
+        <c-card-body>
+          <div *ngIf="file != null" style="float: right;">
+            <i class="fa fa-file"></i>
+            {{fileName}}
+            <i (click)="deleteFile()" cButton class="fa fa-close" style="box-shadow: none;"></i>
+            <br>
+          </div>
+          <c-row>
+            <h4 *ngIf="productsArray.length==0" style="padding-left: 20px;">
+              <c-badge color="primary">1</c-badge>
+            </h4>
+            <h4 *ngIf="productsArray.length>0">
+              <c-badge color="primary">1</c-badge>
+            </h4>
+            <span class="step-enable">&nbsp;&nbsp;{{"Add Products" | translate}}</span>
+          </c-row>
+          <c-row *ngIf="productsArray.length==0">
+              <span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                {{"Upload your outbound file" | translate}} (.xlsx and .csv accepted). 
+              </span>
+              <a href="assets/data/outbound-template.xlsx"  download="outbound-template.xlsx">
+                {{"Get the template" | translate}}
+            </a>
+          </c-row>
+          <div *ngIf="productsArray.length>0 || enableAddProduct">
+            <button *ngIf="file!=null" cButton (click)="enableNewLine()" color="dark" style="float: right;margin:10px;">{{"Add a new line" | translate}}</button>
+            <table class="table table-responsive-sm table-sm">    
+                <colgroup>
+                  <col class="column-1" />
+                  <col class="column-1" />
+                  <col class="column-1" />
+                  <col class="column-1" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th class="table-header-custom">{{"SKU" | translate}}</th>
+                    <th class="table-header-custom">{{"PRODUCT NAME" | translate}}</th>
+                    <th class="table-header-custom">{{"BARCODE" | translate}}</th>
+                    <th class="table-header-custom">{{"QUANTITY" | translate}}</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <thead *ngIf="enableNew">
+                    <tr>
+                      <th scope="col">
+                        <input type="text" [(ngModel)]="editSKU" class="form-control"/>
+                      </th>
+                      <th>
+                        <input type="text" [(ngModel)]="editProductName" class="form-control"/>
+                      </th>
+                      <th>
+                        <input type="text" [(ngModel)]="editBarcode" class="form-control"/>
+                      </th>
+                      <th>
+                        <input type="text" [(ngModel)]="editQuentity" class="form-control"/>
+                      </th>
+                      <th>
+                        <button type="button" (click)="addNewLine()" class="btn btn-outline-secondary" [ngClass]="{'reset-active':(editSKU!=''&&editProductName!=''&&editBarcode!=''&&editQuentity!=''), 'reset-deactive':!(editSKU!=''&&editProductName!=''&&editBarcode!=''&&editQuentity!='')}">{{"Add" | translate}}</button>
+                      </th>
+                    </tr>
+                  </thead>
+                <tbody>
+                  <tr *ngFor="let product of productsArray;let i=index;">
+                    <td class="table-body-text">{{ product["SKU*"] }}</td>
+                    <td class="table-body-text">{{ product["Product name*"] }}</td>
+                    <td class="table-body-text">{{ product["Barcode*"] }}</td>
+                    <td class="table-body-text">{{ product["Quantity*"] }}</td>
+                    <td><i (click)="deleteProduct(i)" cButton class="fa fa-close" style="box-shadow: none;"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+              <span>
+                {{"You have added" | translate}} {{productsArray.length}} {{"products" | translate}}.
+              </span>
+              
+          </div>
+          <button *ngIf="file==null" cButton (click)="fileupload.click()" color="dark" style="float: right;">{{"Import a file" | translate}}</button>
+          <button *ngIf="file==null" cButton (click)="enableAddProducts()" color="dark" style="float: right;margin-right:10px;">{{"Add product" | translate}}</button>
+          <input [hidden]="true" #fileupload accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,.csv" type="file" id="fileupload" (change)="handleFileInput($event.target.files)">
+          <br>
+          <hr>
+          <c-row  *ngIf="file!=null">
+            <c-col col="1"></c-col>
+            <c-col col="5">
+                <c-row>
+                    <i class="fa fa-share-alt-square" style="color:#3c6dff;font-size:2em;"></i>
+                   <span class="step-enable">&nbsp;&nbsp;{{"Ship-to address" | translate}}</span>
+                </c-row>
+                <br>
+                <c-row>
+                    {{addressName}}<br>
+                    {{addressFieldOne}}<br>
+                    {{addressPostalCode}} {{addressCity}}<br>
+                    {{addressCountryCode}}
+                </c-row>
+            </c-col>
+          </c-row>
+          <div *ngIf="file!=null">
+            <br>
+            <button  cButton (click)="confirm()" color="primary" style="float: right;">{{"Confirm" | translate}}</button>
+            <br><br>
+          </div>
+        </c-card-body>
+      </c-card>
+</div>

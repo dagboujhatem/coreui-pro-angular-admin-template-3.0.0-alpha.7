@@ -1,0 +1,71 @@
+<div class="fade-in">
+    <c-row>
+        <c-col md="12">
+            <c-card>
+                <c-card-body>
+                    <c-row>
+                        <c-col>
+                            <form [formGroup]="simpleForm" novalidate (ngSubmit)="onSubmit()" class="needs-validation">
+                                <c-form-group>
+                                    <label class="col-form-label" for="nature">{{"Nature of the order" | translate}}</label>
+                                    <select cSelect id="nature" name="nature" required>
+                                        <option value="0">{{"select" | translate}}</option>
+                                        <option value="1">Option #1</option>
+                                        <option value="2">Option #2</option>
+                                        <option value="3">Option #3</option>
+                                      </select>
+                                  </c-form-group>
+                                <c-form-group>
+                                    <label class="col-form-label" for="description">{{"Description" | translate}}</label>
+                                    <textarea cTextarea
+                                           id="description"
+                                           formControlName="description"
+                                           
+                                           autocomplete="description"
+                                           required
+                                           [ngClass]="{ 'is-invalid':  (submitted || f.description.touched) && f.description.invalid, 'is-valid': f.description.touched && f.description.valid }" >
+                                    </textarea>
+                                </c-form-group>
+                                <c-form-group>
+                                    <label class="col-form-label" for="code">{{"Harmonized System code" | translate}}</label>
+                                    <input cInput
+                                           id="code"
+                                           formControlName="code"
+                                           
+                                           autocomplete="code"
+                                           required
+                                           [ngClass]="{ 'is-invalid':  (submitted || f.code.touched) && f.code.invalid, 'is-valid': f.code.touched && f.code.valid }" />
+                                    <div *ngIf="submitted && f['code'].invalid" class="invalid-feedback">
+                                      <div *ngIf="f['code'].errors.required">{{"Harmonized System code is required" | translate}}</div>
+                                    </div>
+                                </c-form-group>
+                                <c-form-group>
+                                    <label class="col-form-label" for="country">{{"Origin Country" | translate}}</label>
+                                    <input cInput
+                                           id="country"
+                                           formControlName="country"
+                                           
+                                           autocomplete="country"
+                                           required
+                                           [ngClass]="{ 'is-invalid':  (submitted || f.country.touched) && f.country.invalid, 'is-valid': f.country.touched && f.country.valid }" />
+                                    <div *ngIf="submitted && f['country'].invalid" class="invalid-feedback">
+                                      <div *ngIf="f['country'].errors.required">{{"Origin Country is required" | translate}}</div>
+                                    </div>
+                                </c-form-group>
+                                <br>
+                                <c-alert [color]="'dark'">
+                                    <span>
+                                        {{"These settings are used by default for all your shipments abroad requiring customs declarations. You can change them for each of your shipments on the Orders. Find more information about customs declarations via our help center." | translate}}
+                                    </span>
+                                </c-alert>
+                                <c-form-group>
+                                    <button cButton color="primary" class="mfe-1" type="submit">{{"Confirm" | translate}}</button>
+                                </c-form-group>
+                            </form>
+                        </c-col>
+                    </c-row>
+                </c-card-body>
+            </c-card>
+        </c-col>
+    </c-row>
+</div>

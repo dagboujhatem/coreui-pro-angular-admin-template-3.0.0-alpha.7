@@ -1,0 +1,285 @@
+<div class="fade-in">
+  <c-row>
+    <c-col sm="12" md="12">
+      <c-card>
+        <c-card-body>
+          <form [formGroup]="simpleForm" novalidate (ngSubmit)="onSubmit()" class="needs-validation">
+            <div class="accordion">
+              <c-card class="mb-0">
+                <c-card-header>
+                  <div style="float: left;"><span class="material-icons theme-color"
+                      style="font-size:2.2em;">ballot</span>
+                    &nbsp;&nbsp;</div>
+                  <span class="theme-color" style="font-size:1.3em;">{{"Options" | translate}}</span>
+                  <button cButton (click)="toggleAccordion(0)" class="accordian-button">
+                    >
+                  </button>
+                </c-card-header>
+                <c-card-body cCollapse [show]="accordion[0]">
+                  <c-form-check variant="checkbox">
+                    <input cInput type="checkbox" id="option">
+                    <label cLabel variant="checkbox" for="option">
+                      {{"Enable returns from " | translate}}track.cubyn.com
+                    </label>
+                  </c-form-check><br>
+                  <c-alert [color]="'dark'">
+                    <span>{{"By selecting this option, you enable, by default, the ability for your customers to download a Cubyn Return label from the tracking page of their shipment. This option applies only on your future shipments.  You can then activate it manually on your past shipments." | translate}}
+                    </span>
+                  </c-alert>
+                </c-card-body>
+              </c-card>
+              <c-card class="mb-0">
+                <c-card-header>
+                  <div style="float: left;"><span class="material-icons theme-color"
+                      style="font-size:2.2em;">directions_bus</span>
+                    &nbsp;&nbsp;</div>
+                  <span class="theme-color" style="font-size:1.3em;">{{"Carrier returns address" | translate}}</span>
+                  &nbsp;&nbsp;<i class="fa fa-info-circle"></i>
+                  <button cButton (click)="toggleAccordion(1)" class="accordian-button">
+                    >
+                  </button>
+                </c-card-header>
+                <c-card-body cCollapse [show]="accordion[1]">
+                  <c-form-group>
+                    <label class="col-form-label" for="organizationCarrier">{{"Organization" | translate}}</label>
+                    <input cInput id="organizationCarrier" formControlName="organizationCarrier"
+                       autocomplete="organizationCarrier"
+                      [ngClass]="{ 'is-invalid':  (submitted || f.organizationCarrier.touched) && f.organizationCarrier.invalid, 'is-valid': f.organizationCarrier.touched && f.organizationCarrier.valid }" />
+                  </c-form-group>
+                  <c-row>
+                    <c-col col="6">
+                      <c-form-group>
+                        <label class="col-form-label" for="street1Carrier">{{"Street" | translate}}</label>
+                        <input cInput id="street1Carrier" formControlName="street1Carrier" 
+                          autocomplete="street1Carrier" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.street1Carrier.touched) && f.street1Carrier.invalid, 'is-valid': f.street1Carrier.touched && f.street1Carrier.valid }" />
+                        <div *ngIf="submitted && f['street1Carrier'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['street1Carrier'].errors.required">{{"Street is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+                  <c-row>
+                    <c-col col="6">
+                      <c-form-group>
+                        <input cInput id="street2Carrier" formControlName="street2Carrier" 
+                          autocomplete="street2Carrier" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.street2Carrier.touched) && f.street2Carrier.invalid, 'is-valid': f.street2Carrier.touched && f.street2Carrier.valid }" />
+                        <div *ngIf="submitted && f['street2Carrier'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['street2Carrier'].errors.required">{{"Street is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+
+                  <c-row>
+                    <c-col col="2">
+                      <c-form-group>
+                        <label class="col-form-label" for="zipCarrier">{{"Zip code" | translate}}</label>
+                        <input cInput id="zipCarrier" formControlName="zipCarrier" 
+                          autocomplete="zipCarrier" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.zipCarrier.touched) && f.zipCarrier.invalid, 'is-valid': f.zipCarrier.touched && f.zipCarrier.valid }" />
+                        <div *ngIf="submitted && f['zipCarrier'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['zipCarrier'].errors.required">{{"Zip code is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                    <c-col col="3">
+                      <c-form-group>
+                        <label class="col-form-label" for="cityCarrier">{{"City" | translate}}</label>
+                        <input cInput id="cityCarrier" formControlName="cityCarrier" 
+                          autocomplete="cityCarrier" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.cityCarrier.touched) && f.cityCarrier.invalid, 'is-valid': f.cityCarrier.touched && f.cityCarrier.valid }" />
+                        <div *ngIf="submitted && f['cityCarrier'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['cityCarrier'].errors.required">{{"City is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                    <c-col col="2">
+                      <c-form-group>
+                        <label class="col-form-label" for="countryCarrier">{{"Country" | translate}}</label>
+                        <input cInput id="countryCarrier" formControlName="countryCarrier" 
+                          autocomplete="countryCarrier" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.countryCarrier.touched) && f.countryCarrier.invalid, 'is-valid': f.countryCarrier.touched && f.countryCarrier.valid }" />
+                        <div *ngIf="submitted && f['countryCarrier'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['countryCarrier'].errors.required">{{"Country is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+                </c-card-body>
+              </c-card>
+              <c-card class="mb-0">
+                <c-card-header>
+                  <div style="float: left;"><span class="material-icons theme-color"
+                       style="font-size:2.2em;">account_box</span>
+                    &nbsp;&nbsp;</div>
+                  <span class="theme-color" style="font-size:1.3em;">{{"Recipient returns address" | translate}}</span>
+                  &nbsp;&nbsp;<i class="fa fa-info-circle"></i>
+                  <button cButton (click)="toggleAccordion(2)" class="accordian-button">
+                    >
+                  </button>
+                </c-card-header>
+                <c-card-body cCollapse [show]="accordion[2]">
+                  <c-form-group>
+                    <label class="col-form-label" for="organizationRecipient">{{"Organization" | translate}}</label>
+                    <input cInput id="organizationRecipient" formControlName="organizationRecipient"
+                       autocomplete="organizationRecipient"
+                      [ngClass]="{ 'is-invalid':  (submitted || f.organizationRecipient.touched) && f.organizationRecipient.invalid, 'is-valid': f.organizationRecipient.touched && f.organizationRecipient.valid }" />
+                  </c-form-group>
+                  <c-row>
+                    <c-col col="6">
+                      <c-form-group>
+                        <label class="col-form-label" for="street1Recipient">{{"Street" | translate}}</label>
+                        <input cInput id="street1Recipient" formControlName="street1Recipient" 
+                          autocomplete="street1Recipient" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.street1Recipient.touched) && f.street1Recipient.invalid, 'is-valid': f.street1Recipient.touched && f.street1Recipient.valid }" />
+                        <div *ngIf="submitted && f['street1Recipient'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['street1Recipient'].errors.required">{{"Street is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+                  <c-row>
+                    <c-col col="6">
+                      <c-form-group>
+                        <input cInput id="street2Recipient" formControlName="street2Recipient" 
+                          autocomplete="street2Recipient" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.street2Recipient.touched) && f.street2Recipient.invalid, 'is-valid': f.street2Recipient.touched && f.street2Recipient.valid }" />
+                        <div *ngIf="submitted && f['street2Recipient'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['street2Recipient'].errors.required">{{"Street is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+
+                  <c-row>
+                    <c-col col="2">
+                      <c-form-group>
+                        <label class="col-form-label" for="zipRecipient">{{"Zip code" | translate}}</label>
+                        <input cInput id="zipRecipient" formControlName="zipRecipient" 
+                          autocomplete="zipRecipient" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.zipRecipient.touched) && f.zipRecipient.invalid, 'is-valid': f.zipRecipient.touched && f.zipRecipient.valid }" />
+                        <div *ngIf="submitted && f['zipRecipient'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['zipRecipient'].errors.required">{{"Zip code is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                    <c-col col="3">
+                      <c-form-group>
+                        <label class="col-form-label" for="cityRecipient">{{"City" | translate}}</label>
+                        <input cInput id="cityRecipient" formControlName="cityRecipient" 
+                          autocomplete="cityRecipient" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.cityRecipient.touched) && f.cityRecipient.invalid, 'is-valid': f.cityRecipient.touched && f.cityRecipient.valid }" />
+                        <div *ngIf="submitted && f['cityRecipient'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['cityRecipient'].errors.required">{{"City is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                    <c-col col="2">
+                      <c-form-group>
+                        <label class="col-form-label" for="countryRecipient">{{"Country" | translate}}</label>
+                        <input cInput id="countryRecipient" formControlName="countryRecipient" 
+                          autocomplete="countryRecipient" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.countryRecipient.touched) && f.countryRecipient.invalid, 'is-valid': f.countryRecipient.touched && f.countryRecipient.valid }" />
+                        <div *ngIf="submitted && f['countryRecipient'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['countryRecipient'].errors.required">{{"Country is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+                </c-card-body>
+              </c-card>
+              <c-card class="mb-0">
+                <c-card-header>
+                  <div style="float: left;"><span class="material-icons theme-color"
+                       style="font-size:2.2em;">card_travel</span>
+                    &nbsp;&nbsp;</div>
+                  <span class="theme-color" style="font-size:1.3em;">{{"Shipper returns address" | translate}}</span>
+                  &nbsp;&nbsp;<i class="fa fa-info-circle"></i>
+                  <button cButton (click)="toggleAccordion(3)" class="accordian-button">
+                    >
+                  </button>
+                </c-card-header>
+                <c-card-body cCollapse [show]="accordion[3]">
+                  <c-form-group>
+                    <label class="col-form-label" for="organizationShipper">{{"Organization" | translate}}</label>
+                    <input cInput id="organizationShipper" formControlName="organizationShipper"
+                       autocomplete="organizationShipper"
+                      [ngClass]="{ 'is-invalid':  (submitted || f.organizationShipper.touched) && f.organizationShipper.invalid, 'is-valid': f.organizationShipper.touched && f.organizationShipper.valid }" />
+                  </c-form-group>
+                  <c-row>
+                    <c-col col="6">
+                      <c-form-group>
+                        <label class="col-form-label" for="street1Shipper">{{"Street" | translate}}</label>
+                        <input cInput id="street1Shipper" formControlName="street1Shipper" 
+                          autocomplete="street1Shipper" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.street1Shipper.touched) && f.street1Shipper.invalid, 'is-valid': f.street1Shipper.touched && f.street1Shipper.valid }" />
+                        <div *ngIf="submitted && f['street1Shipper'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['street1Shipper'].errors.required">{{"Street is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+                  <c-row>
+                    <c-col col="6">
+                      <c-form-group>
+                        <input cInput id="street2Shipper" formControlName="street2Shipper" 
+                          autocomplete="street2Shipper" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.street2Shipper.touched) && f.street2Shipper.invalid, 'is-valid': f.street2Shipper.touched && f.street2Shipper.valid }" />
+                        <div *ngIf="submitted && f['street2Shipper'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['street2Shipper'].errors.required">{{"Street is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+
+                  <c-row>
+                    <c-col col="2">
+                      <c-form-group>
+                        <label class="col-form-label" for="zipShipper">{{"Zip code" | translate}}</label>
+                        <input cInput id="zipShipper" formControlName="zipShipper" 
+                          autocomplete="zipShipper" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.zipShipper.touched) && f.zipShipper.invalid, 'is-valid': f.zipShipper.touched && f.zipShipper.valid }" />
+                        <div *ngIf="submitted && f['zipShipper'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['zipShipper'].errors.required">{{"Zip code is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                    <c-col col="3">
+                      <c-form-group>
+                        <label class="col-form-label" for="cityShipper">{{"City" | translate}}</label>
+                        <input cInput id="cityShipper" formControlName="cityShipper" 
+                          autocomplete="cityShipper" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.cityShipper.touched) && f.cityShipper.invalid, 'is-valid': f.cityShipper.touched && f.cityShipper.valid }" />
+                        <div *ngIf="submitted && f['cityShipper'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['cityShipper'].errors.required">{{"City is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                    <c-col col="2">
+                      <c-form-group>
+                        <label class="col-form-label" for="countryShipper">{{"Country" | translate}}</label>
+                        <input cInput id="countryShipper" formControlName="countryShipper" 
+                          autocomplete="countryShipper" required
+                          [ngClass]="{ 'is-invalid':  (submitted || f.countryShipper.touched) && f.countryShipper.invalid, 'is-valid': f.countryShipper.touched && f.countryShipper.valid }" />
+                        <div *ngIf="submitted && f['countryShipper'].invalid" class="invalid-feedback">
+                          <div *ngIf="f['countryShipper'].errors.required">{{"Country is required" | translate}}</div>
+                        </div>
+                      </c-form-group>
+                    </c-col>
+                  </c-row>
+                </c-card-body>
+              </c-card>
+              <br>
+              <c-form-group>
+                <button cButton color="primary" class="mfe-1" type="submit">{{"Confirm" | translate}}</button>
+              </c-form-group>
+            </div>
+
+          </form>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
+</div>
